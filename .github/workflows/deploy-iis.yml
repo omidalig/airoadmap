@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:
 
 permissions:
   contents: read
@@ -79,4 +78,3 @@ jobs:
           }
 
           Write-Host "Deployment completed for commit $env:GITHUB_SHA"
-

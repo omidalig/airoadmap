@@ -265,18 +265,21 @@ python -m http.server 8765 --bind 127.0.0.1 --directory "F:\Projects\airoadmap"
 Repository → Settings → Actions → Runners → New self-hosted runner
 ```
 
-سیستم‌عامل `Windows` و معماری `x64` را انتخاب و فرمان‌های نمایش‌داده‌شده توسط GitHub را داخل PowerShell سرور اجرا کنید. هنگام پیکربندی:
-
-- Runner را با برچسب `airoadmap-production` ثبت کنید.
-- Runner را به‌صورت Windows Service نصب کنید تا بعد از Restart سرور خودکار اجرا شود.
-- حساب Windows Service باید روی `D:\Sites\Skyboard\AiRoadmap` دسترسی `Modify` داشته باشد.
-
-نمونهٔ افزودن Label هنگام پیکربندی Runner:
+سیستم‌عامل `Windows` و معماری `x64` را انتخاب کنید و Token کوتاه‌عمر نمایش‌داده‌شده را کپی کنید. سپس فایل `scripts/install-iis-runner.ps1` را روی سرور دانلود و PowerShell را با `Run as administrator` باز کنید:
 
 ```powershell
-.\config.cmd --url https://github.com/omidalig/airoadmap --token TOKEN_FROM_GITHUB --labels airoadmap-production --runasservice
+Set-ExecutionPolicy -Scope Process Bypass -Force
+.\install-iis-runner.ps1
 ```
 
-> Token را فقط از صفحهٔ ساخت Runner بردارید و در README، Commit، Issue یا پیام عمومی قرار ندهید. این Token کوتاه‌عمر است.
+اسکریپت Token را به‌صورت مخفی می‌پرسد و تمام مراحل زیر را خودکار انجام می‌دهد:
 
-بعد از نصب Runner، از تب `Actions` می‌توانید Workflow را با گزینهٔ `Run workflow` نیز به‌صورت دستی اجرا کنید.
+- دریافت آخرین نسخهٔ Windows x64 Runner
+- بررسی SHA-256 رسمی فایل دانلودی
+- نصب در `C:\actions-runner`
+- ثبت Label با نام `airoadmap-production`
+- نصب Runner به‌صورت Windows Service
+- اعطای دسترسی `Modify` روی `D:\Sites\Skyboard\AiRoadmap`
+- شروع Service و نمایش وضعیت نهایی
+
+> Token را فقط از صفحهٔ ساخت Runner بردارید و در فایل، Commit، Issue یا پیام عمومی قرار ندهید. این Token کوتاه‌عمر است.
