@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 
 const root = __dirname;
-const manifestPath = path.join(root, "career-paths", "manifest.json");
+const manifestPath = path.join(root, "careers", "manifest.json");
 const errors = [];
 let manifest;
 
