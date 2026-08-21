@@ -1,0 +1,82 @@
+name: Validate and deploy to IIS
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: production-iis
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: Validate and package
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate career roadmaps
+        run: node validate-roadmaps.js
+
+      - name: Create deployment package
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Path deployment -Force | Out-Null
+          Copy-Item index.html, favicon.svg, web.config -Destination deployment
+          Copy-Item careers -Destination deployment -Recurse
+
+      - name: Upload deployment package
+        uses: actions/upload-artifact@v4
+        with:
+          name: iis-site-${{ github.sha }}
+          path: deployment
+          if-no-files-found: error
+          retention-days: 7
+
+  deploy:
+    name: Deploy production
+    needs: build
+    runs-on:
+      - self-hosted
+      - Windows
+      - X64
+      - airoadmap-production
+    environment: production
+    steps:
+      - name: Download deployment package
+        uses: actions/download-artifact@v4
+        with:
+          name: iis-site-${{ github.sha }}
+          path: deployment
+
+      - name: Deploy files to IIS directory
+        shell: powershell
+        run: |
+          $source = (Resolve-Path -LiteralPath ".\deployment").Path
+          $destination = "D:\Sites\Skyboard\AiRoadmap"
+
+          if ($destination -ne "D:\Sites\Skyboard\AiRoadmap") {
+            throw "Unexpected deployment destination."
+          }
+
+          New-Item -ItemType Directory -Path $destination -Force | Out-Null
+          & robocopy $source $destination /MIR /R:3 /W:2 /NFL /NDL /NJH /NJS /NP
+          $robocopyExitCode = $LASTEXITCODE
+
+          if ($robocopyExitCode -ge 8) {
+            throw "Robocopy failed with exit code $robocopyExitCode."
+          }
+
+          Write-Host "Deployment completed for commit $env:GITHUB_SHA"
+

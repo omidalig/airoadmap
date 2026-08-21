@@ -245,3 +245,38 @@ python -m http.server 8765 --bind 127.0.0.1 --directory "F:\Projects\airoadmap"
 ```
 
 سپس `http://127.0.0.1:8765/` را باز کنید.
+
+## استقرار خودکار روی IIS
+
+هر Push روی شاخهٔ `main`، Workflow فایل `.github/workflows/deploy-iis.yml` را اجرا می‌کند:
+
+1. تمام Roadmapها با `validate-roadmaps.js` بررسی می‌شوند.
+2. فقط فایل‌های لازم برای نسخهٔ عملیاتی بسته‌بندی می‌شوند.
+3. بسته روی Runner ویندوزی سرور دانلود می‌شود.
+4. محتوای `D:\Sites\Skyboard\AiRoadmap` با نسخهٔ جدید همگام می‌شود.
+
+استقرار فقط زمانی انجام می‌شود که اعتبارسنجی مرحلهٔ اول موفق باشد. اجرای هم‌زمان Deploymentها نیز غیرفعال است تا دو نسخه به‌صورت موازی روی IIS کپی نشوند.
+
+### راه‌اندازی Runner روی سرور
+
+در GitHub وارد مسیر زیر شوید:
+
+```text
+Repository → Settings → Actions → Runners → New self-hosted runner
+```
+
+سیستم‌عامل `Windows` و معماری `x64` را انتخاب و فرمان‌های نمایش‌داده‌شده توسط GitHub را داخل PowerShell سرور اجرا کنید. هنگام پیکربندی:
+
+- Runner را با برچسب `airoadmap-production` ثبت کنید.
+- Runner را به‌صورت Windows Service نصب کنید تا بعد از Restart سرور خودکار اجرا شود.
+- حساب Windows Service باید روی `D:\Sites\Skyboard\AiRoadmap` دسترسی `Modify` داشته باشد.
+
+نمونهٔ افزودن Label هنگام پیکربندی Runner:
+
+```powershell
+.\config.cmd --url https://github.com/omidalig/airoadmap --token TOKEN_FROM_GITHUB --labels airoadmap-production --runasservice
+```
+
+> Token را فقط از صفحهٔ ساخت Runner بردارید و در README، Commit، Issue یا پیام عمومی قرار ندهید. این Token کوتاه‌عمر است.
+
+بعد از نصب Runner، از تب `Actions` می‌توانید Workflow را با گزینهٔ `Run workflow` نیز به‌صورت دستی اجرا کنید.
