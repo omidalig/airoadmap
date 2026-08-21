@@ -1,0 +1,140 @@
+{
+  "schemaVersion": 1,
+  "role": {
+    "id": "your-role-id",
+    "label": "عنوان جایگاه شغلی",
+    "short": "عنوان کوتاه"
+  },
+  "reviewedAt": "تاریخ آخرین بازبینی",
+  "careerVideoReviewedAt": "تاریخ بررسی ویدیو",
+  "guide": {
+    "title": "مسیر عنوان جایگاه شغلی",
+    "future": [
+      "توضیح بده این شغل با رشد AI چطور تغییر می‌کند.",
+      "توضیح بده کار روزمره و مسئولیت واقعی این جایگاه چیست."
+    ],
+    "example": "یک مثال واقعی و قابل فهم از کار این جایگاه بنویس.",
+    "outcome": "آخر این مسیر، یادگیرنده باید بتواند چه کاری انجام دهد؟"
+  },
+  "flow": {
+    "note": "جایگاه این نقش را در فرایند واقعی کار خلاصه کن.",
+    "steps": [
+      {
+        "title": "نام مرحله",
+        "detail": "کار این جایگاه در این مرحله را توضیح بده.",
+        "mode": "lead"
+      },
+      {
+        "title": "نام مرحله بعدی",
+        "detail": "نوع همکاری این جایگاه را توضیح بده.",
+        "mode": "partner"
+      }
+    ]
+  },
+  "careerVideo": {
+    "videoId": "youtube-video-id",
+    "title": "عنوان ویدیو",
+    "publisher": "نام ناشر",
+    "publishedLabel": "زمان انتشار",
+    "popularityLabel": "میزان محبوبیت یا دلیل انتخاب",
+    "fit": "چرا این ویدیو برای این جایگاه مناسب است؟",
+    "sourceUrl": "https://www.youtube.com/watch?v=youtube-video-id"
+  },
+  "phases": [
+    {
+      "id": "understand",
+      "number": "۱",
+      "title": "اول مفاهیم را بفهم",
+      "description": "پایه‌های لازم این مسیر را یاد بگیر."
+    },
+    {
+      "id": "build",
+      "number": "۲",
+      "title": "بعد تجربه عملی بساز",
+      "description": "آموخته‌ها را در یک مسئله واقعی اجرا کن."
+    },
+    {
+      "id": "trust",
+      "number": "۳",
+      "title": "در پایان قابل اعتمادش کن",
+      "description": "کیفیت، امنیت و عملیات را کنترل کن."
+    }
+  ],
+  "tracks": [
+    {
+      "id": "your-role-foundations",
+      "phase": "understand",
+      "order": 1,
+      "eyebrow": "شروع مسیر",
+      "title": "عنوان بخش یادگیری",
+      "summary": "خلاصه این بخش را بنویس.",
+      "outcome": "خروجی قابل سنجش این بخش چیست؟",
+      "level": "beginner",
+      "roles": [
+        "your-role-id"
+      ],
+      "color": "violet",
+      "topics": [
+        {
+          "id": "first-topic",
+          "title": "اولین موضوع",
+          "status": "available",
+          "why": "چرا یادگیری این موضوع مهم است؟",
+          "output": "یادگیرنده چه خروجی می‌سازد؟",
+          "prerequisites": "پیش‌نیاز یا بدون پیش‌نیاز",
+          "url": "https://example.com/learning-resource"
+        }
+      ]
+    }
+  ],
+  "chapters": [
+    {
+      "id": "your-role-first-chapter",
+      "order": 100,
+      "sectionId": "foundation",
+      "sectionTitle": "بخش اختصاصی جایگاه جدید",
+      "title": "عنوان فصل",
+      "summary": "معرفی کوتاه فصل",
+      "level": 1,
+      "roles": [
+        "your-role-id"
+      ],
+      "roleLabels": [
+        "عنوان جایگاه شغلی"
+      ],
+      "why": "چرا این فصل برای این جایگاه مهم است؟",
+      "learningObjectives": [
+        "هدف یادگیری اول",
+        "هدف یادگیری دوم"
+      ],
+      "practice": "یک تمرین عملی و قابل انجام تعریف کن.",
+      "subtopics": [
+        "زیرموضوع علمی اول",
+        "زیرموضوع علمی دوم"
+      ],
+      "resources": [
+        {
+          "title": "نام منبع آموزشی",
+          "url": "https://example.com/learning-resource"
+        }
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "chapterId": "your-role-first-chapter",
+      "videoId": "youtube-video-id",
+      "title": "عنوان ویدیوی فصل",
+      "publisher": "نام ناشر",
+      "publishedLabel": "زمان انتشار",
+      "popularityLabel": "میزان محبوبیت یا دلیل انتخاب",
+      "sourceUrl": "https://www.youtube.com/watch?v=youtube-video-id"
+    }
+  ],
+  "sources": [
+    {
+      "title": "نام منبع آموزشی",
+      "url": "https://example.com/learning-resource"
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "schemaVersion": 1,
+  "careers": [
+    {
+      "id": "all",
+      "file": "career-paths/ai-engineer/roadmap.json"
+    },
+    {
+      "id": "developer",
+      "file": "career-paths/developer/roadmap.json"
+    },
+    {
+      "id": "analyst",
+      "file": "career-paths/analyst/roadmap.json"
+    },
+    {
+      "id": "tester",
+      "file": "career-paths/tester/roadmap.json"
+    },
+    {
+      "id": "deployment",
+      "file": "career-paths/deployment-operations/roadmap.json"
+    },
+    {
+      "id": "data-engineer",
+      "file": "career-paths/data-engineer/roadmap.json"
+    },
+    {
+      "id": "analytics-engineer",
+      "file": "career-paths/analytics-engineer/roadmap.json"
+    },
+    {
+      "id": "data-platform-engineer",
+      "file": "career-paths/data-platform-engineer/roadmap.json"
+    },
+    {
+      "id": "ai-data-engineer",
+      "file": "career-paths/ai-data-engineer/roadmap.json"
+    }
+  ]
+}

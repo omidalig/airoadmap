@@ -1,0 +1,2165 @@
+{
+  "schemaVersion": 1,
+  "role": {
+    "id": "data-platform-engineer",
+    "label": "مهندس پلتفرم داده",
+    "short": "پلتفرم داده"
+  },
+  "reviewedAt": "۲۹ مرداد ۱۴۰۵",
+  "careerVideoReviewedAt": "۲۹ مرداد ۱۴۰۵",
+  "guide": {
+    "title": "مسیر مهندس پلتفرم داده",
+    "future": [
+      "در این جایگاه قرار نیست برای هر تیم یک Pipeline دستی بسازی. قراره پلتفرمی طراحی کنی که تیم‌ها از مسیرهای آماده و امن، Dataset و Job خودشون رو بسازن. مسئول تجربه توسعه‌دهنده داخلی، Template، دسترسی، Orchestration، Observability، ظرفیت و هزینه هستی و باید Guardrailها رو داخل پلتفرم بذاری، نه فقط داخل یک سند طولانی.",
+      "AI ساخت Pipeline رو ساده‌تر می‌کنه و تعداد تغییرها بالا می‌ره؛ پس Policy-as-code، محیط ایزوله، Rollback، Lineage و Cost Limit اهمیت بیشتری پیدا می‌کنن. پلتفرم موفق ابزاری نیست که فقط روشن باشه؛ باید زمان تحویل رو کم کنه، خطا رو زود نشان بده و در زمان Incident مسیر امن برای بازیابی داشته باشه."
+    ],
+    "example": "فرض کن ده تیم برای ساخت Pipeline درخواست دسترسی و زیرساخت می‌دن. تو یک Golden Path می‌سازی که Repository، CI/CD، Secret، Airflow Asset، Monitoring و Catalog Entry رو با Template ایجاد کنه. تیم‌ها Self-service جلو می‌رن، ولی Policy دسترسی، سقف هزینه و تست Disaster Recovery از همون ابتدا اعمال می‌شه.",
+    "outcome": "آخر این مسیر می‌تونی یک پلتفرم داده Self-service، امن، قابل پایش و قابل توسعه بسازی."
+  },
+  "flow": {
+    "note": "مهندس پلتفرم داده مالک قابلیت مشترک، Guardrail و تجربه Self-service است؛ مالک منطق هر Dataset نیست، اما مسیر امن و پایدار ساخت و اجرای آن را فراهم می‌کند.",
+    "steps": [
+      {
+        "title": "نیاز تیم‌های داده",
+        "detail": "اصطکاک، الگوی تکراری و SLO پلتفرم رو از کاربران می‌گیری.",
+        "mode": "partner"
+      },
+      {
+        "title": "طراحی Golden Path",
+        "detail": "Template، API، Policy و تجربه Self-service رو طراحی می‌کنی.",
+        "mode": "lead"
+      },
+      {
+        "title": "زیرساخت و امنیت",
+        "detail": "Compute، Storage، Identity، Secret و Network رو می‌سازی.",
+        "mode": "lead"
+      },
+      {
+        "title": "پایش و هزینه",
+        "detail": "ظرفیت، SLO، Cost و Telemetry رو کنترل می‌کنی.",
+        "mode": "lead"
+      },
+      {
+        "title": "بهبود پلتفرم",
+        "detail": "Incident و بازخورد تیم‌ها نسخه بعدی پلتفرم رو شکل می‌ده.",
+        "mode": "lead"
+      }
+    ]
+  },
+  "careerVideo": {
+    "videoId": "qXY0KEhIu0E",
+    "title": "Platform Engineering at AI Speed: Self-service, Governance and Rollbacks",
+    "publisher": "Platform Engineering",
+    "publishedLabel": "منتشرشده در ۱ ماه اخیر",
+    "popularityLabel": "ارائه منتخب PlatformCon 2026",
+    "fit": "نشان می‌دهد پلتفرم در عصر AI باید Self-service سریع را با Governance، Policy و Rollback ترکیب کند؛ مسئولیت این نقش ساخت Golden Path امن برای تیم‌های داده است.",
+    "sourceUrl": "https://www.youtube.com/watch?v=qXY0KEhIu0E"
+  },
+  "phases": [
+    {
+      "id": "understand",
+      "number": "۱",
+      "title": "مدل را بفهم",
+      "description": "قبل از ساختن، زبان مشترک و مرزهای مدل را بشناس."
+    },
+    {
+      "id": "build",
+      "number": "۲",
+      "title": "سیستم واقعی بساز",
+      "description": "مدل را به داده، ابزار و فرایند مهندسی وصل کن."
+    },
+    {
+      "id": "trust",
+      "number": "۳",
+      "title": "قابل اعتماد و قابل استقرار کن",
+      "description": "کیفیت، امنیت، هزینه و عملیات را قابل اندازه‌گیری کن."
+    }
+  ],
+  "tracks": [
+    {
+      "id": "orientation",
+      "phase": "understand",
+      "order": 1,
+      "eyebrow": "شروع درست",
+      "title": "نقش و پیش‌نیازها",
+      "summary": "بدان AI Engineer دقیقاً چه کسی است، از کجا باید شروع کنی و چه دانشی را نباید با ابزار دور بزنی.",
+      "outcome": "یک نقشهٔ شکاف مهارتی شخصی و نقطهٔ شروع واقعی می‌سازی.",
+      "level": "beginner",
+      "roles": [
+        "all",
+        "developer",
+        "analyst",
+        "tester",
+        "deployment"
+      ],
+      "color": "violet",
+      "topics": [
+        {
+          "id": "ai-role",
+          "title": "AI Engineer چیست؟",
+          "status": "available",
+          "why": "بدون تعریف نقش، مسیر به فهرست پراکنده‌ای از ابزارها تبدیل می‌شود.",
+          "output": "مقایسهٔ AI Engineer با ML Engineer، Data Scientist و Software Engineer.",
+          "prerequisites": "ندارد",
+          "url": "https://learn.microsoft.com/en-us/training/career-paths/ai-engineer"
+        },
+        {
+          "id": "role-diff",
+          "title": "تفاوت نقش‌های AI",
+          "status": "available",
+          "why": "انتظار شغلی و عمق لازم برای هر نقش یکسان نیست.",
+          "output": "جدول مسئولیت، خروجی و مرز تصمیم هر نقش.",
+          "prerequisites": "AI Engineer چیست؟",
+          "url": "https://developers.google.com/machine-learning/managing-ml-projects/roles"
+        },
+        {
+          "id": "software-prereq",
+          "title": "پیش‌نیازهای نرم‌افزار و API",
+          "status": "external",
+          "why": "AI ضعف در Git، HTTP، Database و Debug را جبران نمی‌کند.",
+          "output": "چک‌لیست آمادگی فنی قبل از ورود به مسیر.",
+          "prerequisites": "ندارد",
+          "url": null
+        },
+        {
+          "id": "personal-gap",
+          "title": "ارزیابی نقطهٔ شروع",
+          "status": "available",
+          "why": "لازم نیست همه از یک نقطه و با یک ترتیب شروع کنند.",
+          "output": "سطح، نقش و سه اولویت یادگیری شخصی.",
+          "prerequisites": "ندارد",
+          "url": "/legacy/index.html#start"
+        }
+      ]
+    },
+    {
+      "id": "foundations",
+      "phase": "understand",
+      "order": 2,
+      "eyebrow": "پایهٔ فکری",
+      "title": "مبانی مدل و LLM",
+      "summary": "مدل زبانی، Token، Context، Training و Inference را بدون افسانه و اصطلاح‌زدگی یاد بگیر.",
+      "outcome": "می‌توانی توانایی و محدودیت یک مدل را توضیح بدهی و ادعای آن را حقیقت فرض نکنی.",
+      "level": "beginner",
+      "roles": [
+        "all",
+        "developer",
+        "analyst",
+        "tester",
+        "deployment"
+      ],
+      "color": "blue",
+      "topics": [
+        {
+          "id": "genai",
+          "title": "GenAI و مدل زبانی",
+          "status": "available",
+          "why": "پاسخ روان الزاماً پاسخ درست نیست.",
+          "output": "چک‌لیست راستی‌آزمایی خروجی مدل.",
+          "prerequisites": "ندارد",
+          "url": "/course/foundations"
+        },
+        {
+          "id": "tokens-context",
+          "title": "Token و Context Window",
+          "status": "available",
+          "why": "هزینه، حافظه و کیفیت پاسخ به Context محدود وابسته‌اند.",
+          "output": "بودجهٔ Context برای یک سناریوی واقعی.",
+          "prerequisites": "GenAI و مدل زبانی",
+          "url": "/course/foundations"
+        },
+        {
+          "id": "training-inference",
+          "title": "Training در برابر Inference",
+          "status": "available",
+          "why": "باید فرق ساخت مدل، اجرای مدل و تغییر رفتار آن را بدانی.",
+          "output": "نمودار چرخهٔ عمر مدل.",
+          "prerequisites": "GenAI و مدل زبانی",
+          "url": "https://huggingface.co/docs/course/chapter1/1"
+        },
+        {
+          "id": "model-landscape",
+          "title": "مدل باز، بسته و Self-hosted",
+          "status": "available",
+          "why": "انتخاب مدل فقط رتبهٔ Benchmark نیست؛ داده، هزینه و عملیات مهم‌اند.",
+          "output": "ماتریس انتخاب مدل برای سه Use Case.",
+          "prerequisites": "Training در برابر Inference",
+          "url": "https://huggingface.co/docs/hub/models-the-hub"
+        },
+        {
+          "id": "sampling",
+          "title": "Sampling و پارامترهای خروجی",
+          "status": "available",
+          "why": "Temperature، Top-P و تکرارپذیری رفتار خروجی را تغییر می‌دهند.",
+          "output": "آزمایش مقایسه‌ای روی یک Prompt ثابت.",
+          "prerequisites": "Token و Context Window",
+          "url": "https://huggingface.co/docs/transformers/generation_strategies"
+        }
+      ]
+    },
+    {
+      "id": "model-interaction",
+      "phase": "understand",
+      "order": 3,
+      "eyebrow": "تعامل قابل کنترل",
+      "title": "Prompt، Context و API",
+      "summary": "درخواست را به قرارداد تبدیل کن و اجرای مدل را با Schema، Streaming و سیاست خطا کنترل کن.",
+      "outcome": "یک فراخوانی پایدار و قابل سنجش با خروجی ساختاریافته می‌سازی.",
+      "level": "beginner",
+      "roles": [
+        "all",
+        "developer",
+        "analyst",
+        "tester",
+        "deployment"
+      ],
+      "color": "cyan",
+      "topics": [
+        {
+          "id": "prompt",
+          "title": "Prompt Engineering",
+          "status": "available",
+          "why": "درخواست مبهم مدل را مجبور به حدس‌زدن می‌کند.",
+          "output": "Prompt Template با Goal، Context، Constraint و Format.",
+          "prerequisites": "GenAI و مدل زبانی",
+          "url": "/course/prompt"
+        },
+        {
+          "id": "context",
+          "title": "Context Engineering و Memory",
+          "status": "available",
+          "why": "مدل باید اطلاعات درست را در زمان درست ببیند.",
+          "output": "سیاست Context، Memory، TTL و حذف.",
+          "prerequisites": "Token و Context Window",
+          "url": "/course/context-memory"
+        },
+        {
+          "id": "long-context",
+          "title": "Long Context و Compaction",
+          "status": "available",
+          "why": "تاریخچهٔ بلند می‌تواند قانون مهم را دفن یا حذف کند.",
+          "output": "Structured State برای گفت‌وگوی طولانی.",
+          "prerequisites": "Context Engineering",
+          "url": "/course/long-context"
+        },
+        {
+          "id": "structured-output",
+          "title": "Structured Output",
+          "status": "available",
+          "why": "Automation به خروجی قابل Parse و Validate نیاز دارد.",
+          "output": "JSON Schema و Validation چندلایه.",
+          "prerequisites": "Prompt Engineering",
+          "url": "/course/structured-output"
+        },
+        {
+          "id": "api-runtime",
+          "title": "API، Streaming، Retry و Cache",
+          "status": "available",
+          "why": "نمونهٔ آزمایشی بدون مدیریت خطا و هزینه، سرویس Production نیست.",
+          "output": "Client مقاوم با Timeout، Retry، Rate Limit و Streaming.",
+          "prerequisites": "Structured Output",
+          "url": "https://developers.openai.com/api/docs/guides/streaming-responses"
+        },
+        {
+          "id": "model-routing",
+          "title": "Model Selection و Routing",
+          "status": "available",
+          "why": "هر درخواست به قوی‌ترین و گران‌ترین مدل نیاز ندارد.",
+          "output": "قانون Route و Fallback بر اساس Risk و Cost.",
+          "prerequisites": "API Runtime",
+          "url": "https://developers.openai.com/api/docs/guides/latest-model"
+        }
+      ]
+    },
+    {
+      "id": "knowledge",
+      "phase": "build",
+      "order": 4,
+      "eyebrow": "دانش قابل بازیابی",
+      "title": "Embedding، Vector Search و RAG",
+      "summary": "متن را به بردار تبدیل کن، همسایهٔ نزدیک را پیدا کن و پاسخ مستند بساز.",
+      "outcome": "یک RAG کامل با Citation، Retrieval Eval و انتخاب Index مناسب تحویل می‌دهی.",
+      "level": "intermediate",
+      "roles": [
+        "all",
+        "developer",
+        "analyst",
+        "tester"
+      ],
+      "color": "teal",
+      "topics": [
+        {
+          "id": "embeddings",
+          "title": "Embedding از صفر",
+          "status": "available",
+          "why": "Embedding موتور Semantic Search و RAG است.",
+          "output": "بردارسازی داده و توضیح شهودی فضای معنایی.",
+          "prerequisites": "مبانی مدل",
+          "url": "https://developers.openai.com/api/docs/guides/embeddings"
+        },
+        {
+          "id": "similarity",
+          "title": "Cosine، Dot Product و Distance",
+          "status": "available",
+          "why": "نزدیک‌ترین بردار همیشه با هر معیار یکسان نیست.",
+          "output": "مقایسهٔ محاسباتی سه معیار شباهت.",
+          "prerequisites": "Embedding",
+          "url": "https://www.pinecone.io/learn/vector-similarity/"
+        },
+        {
+          "id": "vector-db",
+          "title": "Vector Database و Index",
+          "status": "available",
+          "why": "ابزار و Index اشتباه هزینه یا کیفیت Retrieval را خراب می‌کند.",
+          "output": "ماتریس انتخاب HNSW، IVF، Flat و ابزار مناسب.",
+          "prerequisites": "Similarity Search",
+          "url": "https://learn.microsoft.com/en-us/azure/search/vector-search-overview"
+        },
+        {
+          "id": "semantic-apps",
+          "title": "کاربردهای Semantic Search",
+          "status": "available",
+          "why": "Embedding فقط برای سؤال‌وجواب روی سند نیست.",
+          "output": "نمونهٔ Recommendation یا Classification برداری.",
+          "prerequisites": "Vector Search",
+          "url": "https://huggingface.co/learn/nlp-course/chapter5/6"
+        },
+        {
+          "id": "rag",
+          "title": "RAG از صفر تا صد",
+          "status": "available",
+          "why": "مدل برای دانش تازه و خصوصی به Retrieval مستند نیاز دارد.",
+          "output": "Pipeline کامل Ingest تا پاسخ همراه Citation.",
+          "prerequisites": "Embedding و Vector DB",
+          "url": "https://learn.microsoft.com/en-us/azure/search/retrieval-augmented-generation-overview"
+        },
+        {
+          "id": "advanced-rag",
+          "title": "Hybrid Search، Rerank و Deep Search",
+          "status": "available",
+          "why": "Vector Search ساده برای سؤال‌های سخت کافی نیست.",
+          "output": "Retrieval چندمرحله‌ای با Eval قابل تکرار.",
+          "prerequisites": "RAG",
+          "url": "https://learn.microsoft.com/en-us/training/modules/aaai-implement-advanced-rag-azure-ai-search/"
+        }
+      ]
+    },
+    {
+      "id": "agents",
+      "phase": "build",
+      "order": 5,
+      "eyebrow": "از پاسخ به اقدام",
+      "title": "Tool، MCP و Agent",
+      "summary": "مدل را به ابزار واقعی وصل کن، اختیارش را محدود کن و Loop را قابل مشاهده نگه دار.",
+      "outcome": "یک Agent محدود با Tool Policy، Stop Rule، Trace و Human Gate می‌سازی.",
+      "level": "intermediate",
+      "roles": [
+        "all",
+        "developer",
+        "analyst",
+        "tester",
+        "deployment"
+      ],
+      "color": "indigo",
+      "topics": [
+        {
+          "id": "tool",
+          "title": "Tool و مرز اقدام",
+          "status": "available",
+          "why": "مدل فقط پیشنهاد می‌دهد؛ Host باید اجازه و اجرا را کنترل کند.",
+          "output": "Tool Contract و Policy کمترین اختیار.",
+          "prerequisites": "Structured Output",
+          "url": "/course/tool-basics"
+        },
+        {
+          "id": "function-calling",
+          "title": "Function Calling",
+          "status": "available",
+          "why": "بین پیشنهاد مدل و اجرای واقعی یک چرخهٔ کنترل لازم است.",
+          "output": "Call کامل با Validation و Authorization.",
+          "prerequisites": "Tool",
+          "url": "/course/function-calling"
+        },
+        {
+          "id": "mcp",
+          "title": "MCP",
+          "status": "available",
+          "why": "قابلیت مشترک میان Hostها به قرارداد استاندارد نیاز دارد.",
+          "output": "معماری Host، Client و Server امن.",
+          "prerequisites": "Function Calling",
+          "url": "/course/mcp"
+        },
+        {
+          "id": "skills",
+          "title": "Skills و روش تکرارپذیر",
+          "status": "available",
+          "why": "کار تکراری باید قابل واگذاری و ارزیابی باشد.",
+          "output": "Skill با Trigger، Steps، Script و Done.",
+          "prerequisites": "Tool",
+          "url": "/course/skills"
+        },
+        {
+          "id": "agent-loop",
+          "title": "Workflow، Agent و ReAct",
+          "status": "available",
+          "why": "Agent برای مسئلهٔ چندمرحله‌ای است، نه هر Automation ساده.",
+          "output": "Agent Loop با Observation و Terminal State.",
+          "prerequisites": "Function Calling",
+          "url": "/course/agents"
+        },
+        {
+          "id": "multi-agent",
+          "title": "Multi-agent و Handoff",
+          "status": "available",
+          "why": "تقسیم مسئولیت بدون قرارداد Handoff فقط پیچیدگی می‌سازد.",
+          "output": "نقشهٔ مسئولیت و پیام Handoff.",
+          "prerequisites": "Agent Loop",
+          "url": "/course/multi-agent"
+        }
+      ]
+    },
+    {
+      "id": "quality-operations",
+      "phase": "trust",
+      "order": 7,
+      "eyebrow": "کیفیت قابل اندازه‌گیری",
+      "title": "Evaluation، Observability و LLMOps",
+      "summary": "کیفیت را با Dataset، Rubric، Trace، Cost و Regression از حدس خارج کن.",
+      "outcome": "برای هر Release مدرک کیفیت، ریسک و Rollback داری.",
+      "level": "intermediate",
+      "roles": [
+        "all",
+        "developer",
+        "analyst",
+        "tester",
+        "deployment"
+      ],
+      "color": "amber",
+      "topics": [
+        {
+          "id": "eval-design",
+          "title": "طراحی Eval و Golden Dataset",
+          "status": "available",
+          "why": "بدون Dataset ثابت، مقایسهٔ نسخه‌ها قابل دفاع نیست.",
+          "output": "Golden Set و Label Guideline.",
+          "prerequisites": "یک سیستم AI کوچک",
+          "url": "/course/evaluation"
+        },
+        {
+          "id": "eval-types",
+          "title": "Deterministic، Model و Human Eval",
+          "status": "available",
+          "why": "هر ادعا Oracle مناسب خودش را می‌خواهد.",
+          "output": "Eval Stack چندلایه.",
+          "prerequisites": "Eval Design",
+          "url": "/course/evaluation"
+        },
+        {
+          "id": "eval-tooling",
+          "title": "RAGAS، DeepEval و Eval Tools",
+          "status": "available",
+          "why": "ابزار باید روش سنجش را تکرارپذیر کند، نه جای Rubric را بگیرد.",
+          "output": "مقایسهٔ دو ابزار روی Dataset یکسان.",
+          "prerequisites": "Eval Types",
+          "url": "https://developers.openai.com/api/docs/guides/evals"
+        },
+        {
+          "id": "tracing",
+          "title": "Trace و LLM Observability",
+          "status": "available",
+          "why": "پاسخ بد ممکن است از مدل، Retrieval یا Tool آمده باشد.",
+          "output": "Trace کامل یک Run و Root-cause Report.",
+          "prerequisites": "Agent یا RAG",
+          "url": "/course/llmops"
+        },
+        {
+          "id": "cost-latency",
+          "title": "Cost، Latency و Production Monitoring",
+          "status": "available",
+          "why": "کیفیت بدون بودجه و SLO پایدار نمی‌ماند.",
+          "output": "Dashboard و Alert برای کیفیت، هزینه و زمان.",
+          "prerequisites": "Tracing",
+          "url": "/course/llmops"
+        },
+        {
+          "id": "release-regression",
+          "title": "Regression، Release Gate و Rollback",
+          "status": "available",
+          "why": "تغییر Prompt و Model هم Release نرم‌افزار است.",
+          "output": "Release Checklist و Rollback Decision.",
+          "prerequisites": "Eval و Monitoring",
+          "url": "/course/llmops"
+        }
+      ]
+    },
+    {
+      "id": "safety",
+      "phase": "trust",
+      "order": 8,
+      "eyebrow": "مرز اعتماد",
+      "title": "امنیت، Safety و Governance",
+      "summary": "دادهٔ بیرونی را دستور فرض نکن و اختیار Agent را بیرون مدل کنترل کن.",
+      "outcome": "Threat Model، Guardrail، Red-team Dataset و Risk Register می‌سازی.",
+      "level": "intermediate",
+      "roles": [
+        "all",
+        "developer",
+        "analyst",
+        "tester",
+        "deployment"
+      ],
+      "color": "rose",
+      "topics": [
+        {
+          "id": "prompt-injection",
+          "title": "Prompt Injection و Tool Abuse",
+          "status": "available",
+          "why": "متن مخرب می‌تواند به اقدام واقعی تبدیل شود.",
+          "output": "Attack Pack و Tool Policy.",
+          "prerequisites": "Tool و RAG",
+          "url": "/course/security"
+        },
+        {
+          "id": "privacy",
+          "title": "Privacy، PII و Data Retention",
+          "status": "available",
+          "why": "Prompt و Trace ممکن است دادهٔ حساس حمل کنند.",
+          "output": "Data Flow و Retention Policy.",
+          "prerequisites": "Context Engineering",
+          "url": "/course/security"
+        },
+        {
+          "id": "output-safety",
+          "title": "Output Handling و Guardrail",
+          "status": "available",
+          "why": "خروجی مدل نباید مستقیم وارد SQL، Shell یا HTML شود.",
+          "output": "Validation و Approval Pipeline.",
+          "prerequisites": "Structured Output",
+          "url": "/course/security"
+        },
+        {
+          "id": "fairness",
+          "title": "Bias، Fairness و Responsible AI",
+          "status": "available",
+          "why": "کیفیت میانگین ممکن است آسیب گروهی را پنهان کند.",
+          "output": "Fairness Slice و Risk Statement.",
+          "prerequisites": "Evaluation",
+          "url": "https://developers.google.com/machine-learning/crash-course/fairness/evaluating-for-bias"
+        },
+        {
+          "id": "moderation",
+          "title": "Content Moderation و Misuse",
+          "status": "available",
+          "why": "کاربر و مدل هر دو می‌توانند مسیر استفادهٔ مخرب بسازند.",
+          "output": "Abuse Case، Moderation Policy و Escalation.",
+          "prerequisites": "Threat Modeling",
+          "url": "https://developers.openai.com/api/docs/guides/moderation"
+        },
+        {
+          "id": "governance",
+          "title": "Governance، Audit و Human Gate",
+          "status": "available",
+          "why": "تصمیم پرریسک باید Owner و مسیر اعتراض داشته باشد.",
+          "output": "Risk Tier، Audit Trail و Decision Owner.",
+          "prerequisites": "Security و Eval",
+          "url": "/course/security"
+        }
+      ]
+    },
+    {
+      "id": "data-core",
+      "phase": "understand",
+      "order": 10,
+      "title": "پایه‌های مهندسی داده",
+      "level": "beginner",
+      "roles": [
+        "data-engineer",
+        "analytics-engineer",
+        "data-platform-engineer",
+        "ai-data-engineer"
+      ]
+    },
+    {
+      "id": "data-storage",
+      "phase": "understand",
+      "order": 11,
+      "title": "مدل داده، انبار و Lakehouse",
+      "level": "beginner",
+      "roles": [
+        "data-engineer",
+        "analytics-engineer",
+        "data-platform-engineer",
+        "ai-data-engineer"
+      ]
+    },
+    {
+      "id": "data-pipelines",
+      "phase": "build",
+      "order": 12,
+      "title": "Pipelineهای Batch، CDC و Streaming",
+      "level": "intermediate",
+      "roles": [
+        "data-engineer",
+        "data-platform-engineer",
+        "ai-data-engineer"
+      ]
+    },
+    {
+      "id": "trusted-data",
+      "phase": "trust",
+      "order": 14,
+      "title": "کیفیت، قرارداد، Lineage و عملیات",
+      "level": "professional",
+      "roles": [
+        "data-engineer",
+        "analytics-engineer",
+        "data-platform-engineer",
+        "ai-data-engineer"
+      ]
+    }
+  ],
+  "chapters": [
+    {
+      "id": "foundations",
+      "order": 1,
+      "sectionId": "foundation",
+      "sectionTitle": "بخش ۱: پایه‌های کار با مدل",
+      "title": "مبانی GenAI، مدل‌های زبانی و نقش جدید مهندس",
+      "summary": "قبل از استفاده حرفه‌ای باید بدانیم مدل چه چیزی هست و چه چیزی نیست.",
+      "level": 1,
+      "roles": [
+        "all"
+      ],
+      "roleLabels": [
+        "همهٔ نقش‌ها"
+      ],
+      "why": "اگر مدل را شبیه یک پایگاه حقیقت یا یک همکار همیشه‌درست ببینیم، جواب‌های روان و مرتب خیلی راحت گولمان می‌زنند. تصمیم درست از جایی شروع می‌شود که فرق «پاسخ قانع‌کننده» و «پاسخ اثبات‌شده» را بفهمیم.",
+      "learningObjectives": [
+        "مدل زبانی چطور بر اساس الگو و احتمال، ادامه متن را می‌سازد و چرا ممکن است با اعتمادبه‌نفس اشتباه کند.",
+        "هوش مصنوعی مولد در پیش‌نویس، خلاصه‌سازی، ایده‌پردازی و تولید کد کجا مفید است و کجا نباید تصمیم نهایی را به آن بسپاریم.",
+        "چطور ادعاهای مدل را با منبع رسمی، اجرای کد، محاسبه یا ابزار مستقل راستی‌آزمایی کنیم."
+      ],
+      "practice": "یک پاسخ واقعی AI پیدا کن، سه ادعای قابل بررسی از آن بیرون بکش و جلوی هر ادعا بنویس چه مدرکی آن را تأیید یا رد می‌کند.",
+      "mission": {
+        "title": "🎮 مأموریت فصل: راستی‌آزمای مدل",
+        "instruction": "یک پاسخ مرتب ولی مشکوک پیدا کن و سه ادعای آن را با منبع یا ابزار مستقل بررسی کن.",
+        "xp": 30
+      },
+      "contentUrl": "/content/chapters/foundations.html",
+      "legacyUrl": "/legacy/index.html#foundations",
+      "completeGuideUrl": null,
+      "subtopics": [
+        "مشق این درس",
+        "GenAI",
+        "Token و Context Window",
+        "خروجی احتمالی",
+        "Prompt، Context و Response",
+        "محدودیت‌ها و ریسک‌ها",
+        "تغییر نقش توسعه‌دهنده",
+        "سناریوی عملی: گرفتن یک Endpoint از AI",
+        "آزمایش تعاملی: آیا آماده پذیرش خروجی هستید؟",
+        "تمرین قابل اجرا"
+      ],
+      "resources": [
+        {
+          "title": "NIST — AI RMF Generative AI Profile",
+          "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"
+        },
+        {
+          "title": "Anthropic — Building effective agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        },
+        {
+          "title": "OpenAI — Harness engineering",
+          "url": "https://openai.com/index/harness-engineering/"
+        }
+      ]
+    },
+    {
+      "id": "prompt",
+      "order": 2,
+      "sectionId": "foundation",
+      "sectionTitle": "بخش ۱: پایه‌های کار با مدل",
+      "title": "Prompt Engineering: طراحی دستورهای دقیق و قابل سنجش",
+      "summary": "درخواست را طوری می‌نویسیم که مدل کمتر مجبور به حدس‌زدن باشد.",
+      "level": 1,
+      "roles": [
+        "all"
+      ],
+      "roleLabels": [
+        "همهٔ نقش‌ها"
+      ],
+      "why": "خیلی از جواب‌های ضعیف نه از ناتوانی مدل، بلکه از درخواست مبهم می‌آیند. وقتی هدف، زمینه، محدودیت و شکل خروجی روشن نباشد، مدل جاهای خالی را خودش حدس می‌زند و همین حدس‌ها منبع خطا می‌شوند.",
+      "learningObjectives": [
+        "چطور هدف واقعی، مخاطب و نتیجه مورد انتظار را در ابتدای درخواست روشن کنیم.",
+        "چه Contextی لازم است، چه اطلاعاتی اضافی است و محدودیت‌هایی مثل ممنوعیت تغییر قرارداد را کجا بنویسیم.",
+        "چطور قالب خروجی و معیار موفقیت تعریف کنیم تا پاسخ قابل مقایسه و قابل Review باشد."
+      ],
+      "practice": "یک درخواست مبهم کاری خودت را بردار، نسخه اول را نگه دار و آن را با چهار بخش Goal، Context، Constraint و Output Format بازنویسی کن. بعد دو پاسخ را کنار هم مقایسه کن.",
+      "mission": {
+        "title": "🎮 مأموریت فصل: معمار Prompt",
+        "instruction": "یک Prompt مبهم را به نسخه‌ای با Goal، Context، Constraint و Output Format تبدیل کن.",
+        "xp": 35
+      },
+      "contentUrl": "/content/chapters/prompt.html",
+      "legacyUrl": "/legacy/index.html#prompt",
+      "completeGuideUrl": "https://developers.openai.com/api/docs/guides/prompting",
+      "subtopics": [
+        "مشق این درس",
+        "چرا Prompt خوب مهم است؟",
+        "چارچوب TASK-C",
+        "انواع Prompt",
+        "کاربردهای تخصصی",
+        "الگوهای استدلال کاری",
+        "Prompt Builder تعاملی",
+        "آزمایش کیفیت Prompt",
+        "الگوی آماده Review"
+      ],
+      "resources": [
+        {
+          "title": "Anthropic — Effective context engineering for AI agents",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+        },
+        {
+          "title": "OpenAI — Structured model outputs",
+          "url": "https://developers.openai.com/api/docs/guides/structured-outputs"
+        },
+        {
+          "title": "Anthropic — Writing effective tools for agents",
+          "url": "https://www.anthropic.com/engineering/writing-tools-for-agents"
+        }
+      ]
+    },
+    {
+      "id": "context-memory",
+      "order": 3,
+      "sectionId": "foundation",
+      "sectionTitle": "بخش ۱: پایه‌های کار با مدل",
+      "title": "Context Engineering، حافظه و مدیریت دانش جاری",
+      "summary": "مدل باید اطلاعات درست را در زمان درست ببیند؛ نه همه اطلاعات ممکن را.",
+      "level": 1,
+      "roles": [
+        "all"
+      ],
+      "roleLabels": [
+        "همهٔ نقش‌ها"
+      ],
+      "why": "اگر همه‌چیز را بدون انتخاب وارد Context کنیم، مدل میان اطلاعات کم‌اهمیت گم می‌شود، هزینه بالا می‌رود و احتمال نشت داده بیشتر می‌شود. از طرف دیگر، ذخیره‌کردن هر اطلاعاتی در Memory می‌تواند حریم خصوصی و رفتار آینده سیستم را خراب کند.",
+      "learningObjectives": [
+        "فرق Context همان اجرا، Memory پایدار و داده‌ای که اصلاً نباید ذخیره شود چیست.",
+        "چطور برای حافظه Scope، منبع، زمان انقضا، امکان ویرایش و امکان حذف تعریف کنیم.",
+        "چگونه با حداقل‌گرایی، جداسازی داده حساس و مقابله با Memory poisoning، Context سالم بسازیم."
+      ],
+      "practice": "برای یک Task واقعی، جدولی با سه ستون Context جاری، Memory پایدار و عدم ذخیره بساز. برای هر مورد دلیل، Scope و روش حذف یا بازیابی را هم بنویس.",
+      "mission": {
+        "title": "🎮 مأموریت فصل: نگهبان Context",
+        "instruction": "برای یک Task واقعی مشخص کن چه چیزی وارد Context، Memory یا هیچ‌کدام شود.",
+        "xp": 40
+      },
+      "contentUrl": "/content/chapters/context-memory.html",
+      "legacyUrl": "/legacy/index.html#context-memory",
+      "completeGuideUrl": null,
+      "subtopics": [
+        "Context Engineering چیست؟",
+        "چرا Context بیشتر همیشه بهتر نیست؟",
+        "تکنیک‌ها",
+        "حافظه کوتاه‌مدت و بلندمدت",
+        "مشق این درس",
+        "راهنماهای عملی تکمیلی این فصل",
+        "دیاگرام کاربردی: چه چیزی در Memory می‌رود و چه چیزی نه؟",
+        "شبیه‌ساز بودجه Context",
+        "قالب یادداشت پایدار Agent",
+        "تمرین عملی"
+      ],
+      "resources": [
+        {
+          "title": "Anthropic — Context Engineering",
+          "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+        },
+        {
+          "title": "Anthropic — Long-running Agent Harnesses",
+          "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents"
+        },
+        {
+          "title": "OpenAI — Run long-horizon tasks with Codex",
+          "url": "https://developers.openai.com/blog/run-long-horizon-tasks-with-codex"
+        }
+      ]
+    },
+    {
+      "id": "long-context",
+      "order": 4,
+      "sectionId": "foundation",
+      "sectionTitle": "بخش ۱: پایه‌های کار با مدل",
+      "title": "گفت‌وگوی طولانی با LLM؛ Context محدود، فراموشی ظاهری و Compression",
+      "summary": "مدل حافظه نامحدود انسانی ندارد؛ باید Context ، State و اطلاعات قدیمی را آگاهانه مدیریت کنیم.",
+      "level": 1,
+      "roles": [
+        "all"
+      ],
+      "roleLabels": [
+        "همهٔ نقش‌ها"
+      ],
+      "why": "اگر پیام‌های قدیمی بی‌هدف حذف شوند، ممکن است یک تصمیم حساس یا محدودیت مهم فراموش شود. اگر هم همه‌چیز را نگه داریم، هزینه و نویز بالا می‌رود و اطلاعات مهم وسط متن گم می‌شوند.",
+      "learningObjectives": [
+        "محدودیت Context window، Truncation و پدیده گم‌شدن اطلاعات در میانه متن چه اثری دارند.",
+        "چطور تاریخچه را به Structured State شامل Goal، Decision، Constraint و Open Task تبدیل کنیم.",
+        "چگونه Compression را با معیار Faithfulness و Continuity بسنجیم تا خلاصه چیزی نسازد یا قانون مهمی را حذف نکند."
+      ],
+      "practice": "یک گفتگو را عمداً طولانی کن، سپس حالت نگهداری خام، حذف پیام قدیمی و خلاصه ساختاریافته را مقایسه کن. بررسی کن قانون حساس بعد از Resume هنوز رعایت می‌شود یا نه.",
+      "mission": {
+        "title": "🎮 مأموریت فصل: نجات قانون گمشده",
+        "instruction": "در شبیه‌ساز، یک قانون قدیمی را با Structured State از Truncation نجات بده.",
+        "xp": 45
+      },
+      "contentUrl": "/content/chapters/long-context.html",
+      "legacyUrl": "/legacy/index.html#long-context",
+      "completeGuideUrl": null,
+      "subtopics": [
+        "آیا پیام‌های قدیمی واقعاً کم‌کم از حافظه مدل محو می‌شوند؟",
+        "دیاگرام کاربردی: طولانی‌شدن Thread چه سرنوشتی پیدا می‌کند؟",
+        "پدیده Lost in the Middle",
+        "برای گفت‌وگوی طولانی چه چیزهایی را جدا نگه داریم؟",
+        "شبیه‌ساز ساده Thread طولانی",
+        "تفسیر شبیه‌ساز",
+        "Compression و Compaction چه هستند؟",
+        "هدف Compression فقط کم‌کردن Token نیست",
+        "انواع Compression",
+        "چه چیزی نباید فقط در Summary بماند؟",
+        "Compression خوب چه Outputی دارد؟",
+        "Compression را چطور ارزیابی کنیم؟",
+        "مشق این فصل: طراحی سیاست Context"
+      ],
+      "resources": [
+        {
+          "title": "OpenAI API — Conversation state and context window",
+          "url": "https://developers.openai.com/api/docs/guides/conversation-state"
+        },
+        {
+          "title": "OpenAI API — Compaction",
+          "url": "https://developers.openai.com/api/docs/guides/compaction"
+        },
+        {
+          "title": "OpenAI Cookbook — Reliable agents with memory and compaction",
+          "url": "https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction"
+        },
+        {
+          "title": "OpenAI Cookbook — Short-term memory with sessions",
+          "url": "https://developers.openai.com/cookbook/examples/agents_sdk/session_memory"
+        },
+        {
+          "title": "Liu et al. — Lost in the Middle",
+          "url": "https://arxiv.org/abs/2307.03172"
+        },
+        {
+          "title": "Anthropic — Context windows and compaction",
+          "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
+        }
+      ]
+    },
+    {
+      "id": "tool-basics",
+      "order": 6,
+      "sectionId": "action",
+      "sectionTitle": "بخش ۲: وصل‌کردن مدل به سیستم",
+      "title": "Tool چیست؟",
+      "summary": "Tool پلی است بین حرف‌زدن مدل و انجام‌دادن کار واقعی.",
+      "level": 1,
+      "roles": [
+        "all"
+      ],
+      "roleLabels": [
+        "همهٔ نقش‌ها"
+      ],
+      "why": "بدون Tool، مدل ممکن است موجودی حساب، وضعیت سفارش یا نتیجه محاسبه را حدس بزند. با Tool می‌توانیم به سیستم واقعی وصل شویم، اما همین اتصال اگر بدون مجوز و کنترل باشد خطرناک است.",
+      "learningObjectives": [
+        "Tool contract شامل نام، توضیح، Schema ورودی و خروجی، خطاها و Side effect را طراحی کنیم.",
+        "Identity، Authorization، Timeout، Rate limit و Audit را بیرون مدل و در Host اعمال کنیم.",
+        "فرق پیشنهاد استفاده از ابزار توسط مدل و اجرای واقعی ابزار توسط سیستم را بفهمیم."
+      ],
+      "practice": "برای یک Tool حساس مثل خواندن سفارش یا اجرای Command، قرارداد کامل بنویس و مشخص کن درخواست غیرمجاز دقیقاً در کدام لایه متوقف می‌شود.",
+      "mission": {
+        "title": "🎮 مأموریت فصل: دروازه‌بان Tool",
+        "instruction": "برای یک Tool حساس، Schema، Permission، Timeout و Audit را تعریف کن.",
+        "xp": 45
+      },
+      "contentUrl": "/content/chapters/tool-basics.html",
+      "legacyUrl": "/legacy/index.html#tool-basics",
+      "completeGuideUrl": null,
+      "subtopics": [
+        "دیاگرام عملی: Tool در کجای معماری قرار می‌گیرد؟",
+        "نمونه Toolهای متداول در LLMهای امروزی",
+        "نمونه Verifier محدود در .NET",
+        "مشق این فصل: طراحی Tool Contract"
+      ],
+      "resources": [
+        {
+          "title": "OpenAI — Tools Overview",
+          "url": "https://developers.openai.com/api/docs/guides/tools"
+        },
+        {
+          "title": "OpenAI — Code Interpreter",
+          "url": "https://developers.openai.com/api/docs/guides/tools-code-interpreter"
+        },
+        {
+          "title": "OpenAI — Local Shell",
+          "url": "https://developers.openai.com/api/docs/guides/tools-local-shell"
+        }
+      ]
+    },
+    {
+      "id": "evaluation",
+      "order": 11,
+      "sectionId": "knowledge",
+      "sectionTitle": "بخش ۳: دانش، ارزیابی و انتخاب روش",
+      "title": "Evaluation Engineering، Reflection و AI-assisted Review",
+      "summary": "کیفیت AI را با نمونه‌های واقعی اندازه می‌گیریم، نه با حس و Demo.",
+      "level": 2,
+      "roles": [
+        "all"
+      ],
+      "roleLabels": [
+        "همهٔ نقش‌ها"
+      ],
+      "why": "دموی خوب و حس شخصی معیار قابل اتکایی نیست. بدون Dataset ثابت و Rubric روشن، مدل‌ها و نسخه‌های مختلف را منصفانه مقایسه نمی‌کنیم و Regressionها دیر دیده می‌شوند.",
+      "learningObjectives": [
+        "Golden Dataset با نمونه مثبت، منفی، مرزی و شکست‌های واقعی بسازیم.",
+        "معیارها را به Rubric قابل امتیاز تبدیل و بین Code grader، انسان و LLM as a Judge انتخاب کنیم.",
+        "Judge را با برچسب انسانی کالیبره و Threshold انتشار و تحلیل خطا تعریف کنیم."
+      ],
+      "practice": "برای یک قابلیت، پنج Golden Case و سه معیار بساز. خروجی دو نسخه را امتیاز بده و توضیح بده کجا Judge و انسان اختلاف دارند.",
+      "mission": {
+        "title": "🎮 مأموریت فصل: قاضی کالیبره",
+        "instruction": "یک Rubric و پنج Golden Case بساز و نتیجه LLM-as-a-Judge را با انسان مقایسه کن.",
+        "xp": 60
+      },
+      "contentUrl": "/content/chapters/evaluation.html",
+      "legacyUrl": "/legacy/index.html#evaluation",
+      "completeGuideUrl": null,
+      "subtopics": [
+        "چرا Evaluation؟",
+        "ابعاد ارزیابی",
+        "Task",
+        "Groundedness",
+        "Safety",
+        "Golden Dataset",
+        "روش‌ها",
+        "Reflection و Self-check",
+        "AI Review",
+        "مشق این درس",
+        "راهنماهای عملی تکمیلی این فصل",
+        "دیاگرام کاربردی: چرخه Evals و Release Gate",
+        "محاسبه Precision و Recall یافته‌های Review",
+        "Rubric داور",
+        "Regression Gate"
+      ],
+      "resources": [
+        {
+          "title": "OpenAI — Agent Evals",
+          "url": "https://developers.openai.com/api/docs/guides/agent-evals"
+        },
+        {
+          "title": "OpenAI — Trace Grading",
+          "url": "https://developers.openai.com/api/docs/guides/trace-grading"
+        },
+        {
+          "title": "Anthropic — Evals for AI Agents",
+          "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+        },
+        {
+          "title": "GitHub Docs — Copilot code review",
+          "url": "https://docs.github.com/en/copilot/concepts/agents/code-review"
+        }
+      ]
+    },
+    {
+      "id": "method-selection",
+      "order": 12,
+      "sectionId": "knowledge",
+      "sectionTitle": "بخش ۳: دانش، ارزیابی و انتخاب روش",
+      "title": "انتخاب روش مناسب",
+      "summary": "حالا که مفاهیم را یاد گرفته‌ایم، می‌تونیم آن‌ها را کنار هم بگذاریم و انتخاب کنیم.",
+      "level": 2,
+      "roles": [
+        "all"
+      ],
+      "roleLabels": [
+        "همهٔ نقش‌ها"
+      ],
+      "why": "بسیاری از پروژه‌ها به‌خاطر حل مسئله ساده با معماری پیچیده شکست می‌خورند. Agent یا Fine-tuning می‌تواند هزینه، ریسک و نگهداری اضافه کند، درحالی‌که یک Prompt یا Workflow کوچک کافی بوده است.",
+      "learningObjectives": [
+        "مسئله را از نظر تازگی دانش، نیاز به Citation، ثبات رفتار، Side effect و پیچیدگی امتیازدهی کنیم.",
+        "کم‌هزینه‌ترین روش کافی را انتخاب و دلیل رد گزینه‌های دیگر را ثبت کنیم.",
+        "Trade-off کیفیت، سرعت، کنترل، هزینه و عملیات را در Decision Record بنویسیم."
+      ],
+      "practice": "سه مسئله متفاوت انتخاب کن، معیارها را در جدول امتیاز بده و برای هرکدام روش پیشنهادی، گزینه ردشده و دلیل تصمیم را بنویس.",
+      "mission": {
+        "title": "🎮 مأموریت فصل: مهندس انتخاب",
+        "instruction": "سه مسئله را بین Prompt، Context، RAG، Fine-tuning و Agent دسته‌بندی و دلیل ثبت کن.",
+        "xp": 50
+      },
+      "contentUrl": "/content/chapters/method-selection.html",
+      "legacyUrl": "/legacy/index.html#method-selection",
+      "completeGuideUrl": null,
+      "subtopics": [
+        "اول نقشه انواع Engineering را بشناسیم",
+        "Direct API، Function Calling، MCP و Agent Tooling",
+        "Prompt، Long Context، RAG و Fine-tuning",
+        "Workflow، Agent، Loop و Multi-agent",
+        "Reflection، Eval، Guardrail و Human Review",
+        "خروجی هر رویکرد Engineering چیست؟",
+        "انتخاب‌گر سریع معماری",
+        "مشق این فصل: سه تصمیم معماری"
+      ],
+      "resources": []
+    },
+    {
+      "id": "sdlc",
+      "order": 13,
+      "sectionId": "development",
+      "sectionTitle": "بخش ۴: توسعه نرم‌افزار با AI و Agent",
+      "title": "کاربردهای GenAI در تمام چرخه توسعه نرم‌افزار",
+      "summary": "AI فقط ابزار تولید کد نیست؛ در تحلیل، طراحی، Test، Debug و مستند هم نقش دارد.",
+      "level": 1,
+      "roles": [
+        "all"
+      ],
+      "roleLabels": [
+        "همهٔ نقش‌ها"
+      ],
+      "why": "اگر AI فقط در مرحله کدنویسی دیده شود، Requirement مبهم، Test ناقص و Runbook فراموش‌شده باقی می‌ماند. ارزش اصلی وقتی ساخته می‌شود که Artifactهای همه مراحل به هم وصل باشند.",
+      "learningObjectives": [
+        "نقش AI، ابزار قطعی و تصمیم انسانی را در تحلیل، طراحی، کد، Test، Review و انتشار جدا کنیم.",
+        "برای هر مرحله Artifact قابل تحویل و Human Gate مناسب تعریف کنیم.",
+        "Evidence را از Requirement تا Production دنبال و مسئولیت نهایی را شفاف نگه داریم."
+      ],
+      "practice": "یک Feature واقعی را از Requirement تا Runbook روی کاغذ بکش و جلوی هر مرحله بنویس AI چه می‌کند، ابزار قطعی چیست و انسان کجا تأیید می‌دهد.",
+      "mission": {
+        "title": "🎮 مأموریت فصل: نقشه‌کش SDLC",
+        "instruction": "یک Feature را از Requirement تا Runbook ببین و جای AI، ابزار قطعی و Human Gate را مشخص کن.",
+        "xp": 45
+      },
+      "contentUrl": "/content/chapters/sdlc.html",
+      "legacyUrl": "/legacy/index.html#sdlc",
+      "completeGuideUrl": "https://docs.github.com/en/copilot/how-tos/agents/copilot-coding-agent/best-practices-for-using-copilot-to-work-on-tasks",
+      "subtopics": [
+        "مشق این درس",
+        "کاربردها بر اساس SDLC",
+        "Browser و IDE",
+        "Chatbot و Virtual Assistant",
+        "Code Execution",
+        "Feature Workflow Board",
+        "Prompt تحلیل Requirement",
+        "تمرین اندازه‌گیری بهره‌وری"
+      ],
+      "resources": [
+        {
+          "title": "GitHub Docs — Copilot code review",
+          "url": "https://docs.github.com/en/copilot/concepts/agents/code-review"
+        },
+        {
+          "title": "OpenAI — Harness engineering",
+          "url": "https://openai.com/index/harness-engineering/"
+        },
+        {
+          "title": "Anthropic — Writing effective tools for agents",
+          "url": "https://www.anthropic.com/engineering/writing-tools-for-agents"
+        }
+      ]
+    },
+    {
+      "id": "existing-code-ai",
+      "order": 14,
+      "sectionId": "development",
+      "sectionTitle": "بخش ۴: توسعه نرم‌افزار با AI و Agent",
+      "title": "توسعه محصول روی کد موجود با AI",
+      "summary": "در پروژه واقعی معمولاً صفحه سفید نداریم؛ باید رفتار فعلی، قراردادها و محدودیت‌های کد موجود را بفهمیم و بعد تغییر کوچک، قابل Review و قابل برگشت بسازیم.",
+      "level": 2,
+      "roles": [
+        "all"
+      ],
+      "roleLabels": [
+        "همهٔ نقش‌ها"
+      ],
+      "why": "Agent اگر بدون شناخت Repository شروع به Edit کند، ممکن است رفتار پنهان، Permission، قرارداد Client یا Migration قدیمی را بشکند. سرعت بدون شناخت در Brownfield هزینه‌ساز است.",
+      "learningObjectives": [
+        "Repository Map شامل ماژول، مسیر داده، Owner، API و Test مرتبط بسازیم.",
+        "Baseline رفتار فعلی، Change Surface و Invariantهایی که نباید شکسته شوند را ثبت کنیم.",
+        "Patch کوچک، Verification قبل و بعد و Rollback عملی طراحی کنیم."
+      ],
+      "practice": "یک Task کوچک روی Repository موجود انتخاب کن؛ قبل از Edit، نقشه فایل‌ها، Baseline command، سه Invariant و روش برگشت را بنویس.",
+      "mission": {
+        "title": "🎮 مأموریت فصل: جراح کد موجود",
+        "instruction": "یک Repository Map و Patch کوچک با Baseline Test، Evidence و Rollback تحویل بده.",
+        "xp": 70
+      },
+      "contentUrl": "/content/chapters/existing-code-ai.html",
+      "legacyUrl": "/legacy/index.html#existing-code-ai",
+      "completeGuideUrl": null,
+      "subtopics": [
+        "دیاگرام توسعه امن روی کد موجود",
+        "دیاگرام کاربردی: توسعه امن روی کد موجود",
+        "فایل‌های راهنمای Repository",
+        "Prompt پیشنهادی برای شروع",
+        "مشق این درس"
+      ],
+      "resources": [
+        {
+          "title": "OpenAI Codex — Understand large codebases",
+          "url": "https://developers.openai.com/codex/use-cases/codebase-onboarding"
+        },
+        {
+          "title": "OpenAI Codex — Best practices",
+          "url": "https://developers.openai.com/codex/learn/best-practices"
+        },
+        {
+          "title": "OpenAI Codex — AGENTS.md",
+          "url": "https://developers.openai.com/codex/agent-configuration/agents-md"
+        },
+        {
+          "title": "Claude Code — Common workflows",
+          "url": "https://code.claude.com/docs/en/common-workflows"
+        },
+        {
+          "title": "GitHub Copilot coding agent — Best practices",
+          "url": "https://docs.github.com/copilot/how-tos/agents/copilot-coding-agent/best-practices-for-using-copilot-to-work-on-tasks"
+        }
+      ]
+    },
+    {
+      "id": "planning",
+      "order": 15,
+      "sectionId": "development",
+      "sectionTitle": "بخش ۴: توسعه نرم‌افزار با AI و Agent",
+      "title": "Plan-first Development؛ قبل از Edit مسیر را روشن کنیم",
+      "summary": "Plan کمک می‌کند Agent قبل از تغییر کد، مسئله، Scope، ریسک و روش Verification را روشن کند.",
+      "level": 2,
+      "roles": [
+        "all"
+      ],
+      "roleLabels": [
+        "همهٔ نقش‌ها"
+      ],
+      "why": "شروع سریع Edit حس پیشرفت می‌دهد، اما در Task چندفایلی باعث رفت‌وبرگشت، تغییر خارج Scope و فراموشی Test یا Rollback می‌شود. Plan کوتاه می‌تواند از ساعت‌ها اصلاح جلوگیری کند.",
+      "learningObjectives": [
+        "Goal، وضعیت فعلی، Scope و Out of scope را با شواهد Repository بنویسیم.",
+        "کار را به مراحل قابل اجرا با فایل‌های احتمالی، Dependency و سؤال‌های باز خرد کنیم.",
+        "Risk، Verification، Definition of Done و Rollback را قبل از Edit مشخص کنیم."
+      ],
+      "practice": "برای یک Task واقعی PLAN کوتاه بساز و آن را به کسی بده که Context قبلی ندارد. اگر مسیر کار و تعریف Done را فهمید، Plan تو قابل استفاده است.",
+      "mission": {
+        "title": "🎮 مأموریت فصل: فرمانده Plan",
+        "instruction": "برای یک Task چندفایلی PLAN.md کوتاه با Risk، Verification و Rollback بنویس.",
+        "xp": 55
+      },
+      "contentUrl": "/content/chapters/planning.html",
+      "legacyUrl": "/legacy/index.html#planning",
+      "completeGuideUrl": null,
+      "subtopics": [
+        "دیاگرام کاربردی: Plan خوب چه اجزایی دارد؟",
+        "Plan در توسعه Agentمحور دقیقاً چیست؟",
+        "سه سطح Plan",
+        "Plan خوب چه بخش‌هایی دارد؟",
+        "نمونه PLAN.md",
+        "مشق این فصل: Plan برای یک تغییر چندفایلی"
+      ],
+      "resources": [
+        {
+          "title": "OpenAI Codex — Plan first for difficult tasks",
+          "url": "https://developers.openai.com/codex/learn/best-practices"
+        },
+        {
+          "title": "OpenAI — Execution Plans",
+          "url": "https://developers.openai.com/cookbook/articles/codex_exec_plans"
+        },
+        {
+          "title": "OpenAI — Long-horizon tasks with Codex",
+          "url": "https://developers.openai.com/blog/run-long-horizon-tasks-with-codex"
+        }
+      ]
+    },
+    {
+      "id": "agents",
+      "order": 17,
+      "sectionId": "development",
+      "sectionTitle": "بخش ۴: توسعه نرم‌افزار با AI و Agent",
+      "title": "Workflow، Agent، Sub-agent و Multi-agent",
+      "summary": "Agent وقتی لازم می‌شه که قدم بعد به نتیجه مرحله قبلی بستگی داشته باشد.",
+      "level": 2,
+      "roles": [
+        "all"
+      ],
+      "roleLabels": [
+        "همهٔ نقش‌ها"
+      ],
+      "why": "اگر هر کار ساده را Agent کنیم، کنترل و پیش‌بینی‌پذیری کم می‌شود. اگر کار واقعاً پویا را Workflow خشک نگه داریم، مسیرهای استثنا و تصمیم‌های لازم پوشش داده نمی‌شوند.",
+      "learningObjectives": [
+        "فرق Workflow قطعی، Agent تصمیم‌گیر، Sub-agent محدود و سیستم Multi-agent را بفهمیم.",
+        "برای هر Agent، Goal، Scope، Tool، Permission، Budget و خروجی تعریف کنیم.",
+        "Context isolation، Handoff، Verifier و Human Gate را در معماری قرار دهیم."
+      ],
+      "practice": "یک کار چندمرحله‌ای را به بخش قطعی و بخش نیازمند تصمیم تقسیم کن و توضیح بده کجا Workflow کافی است و کجا Agent محدود ارزش دارد.",
+      "mission": {
+        "title": "🎮 مأموریت فصل: طراح مسئولیت",
+        "instruction": "یک Workflow را به Agent اصلی و Sub-agentهای محدود تقسیم کن و مرز اختیار را بنویس.",
+        "xp": 60
+      },
+      "contentUrl": "/content/chapters/agents.html",
+      "legacyUrl": "/legacy/index.html#agents",
+      "completeGuideUrl": null,
+      "subtopics": [
+        "Workflow یا Agent؟",
+        "Handoff و Orchestrator",
+        "Human-in-the-loop",
+        "Composable Workflows",
+        "دیاگرام Sub-agent در برابر Agent Team",
+        "قرارداد خوب Sub-agent",
+        "مشق این درس",
+        "راهنماهای عملی تکمیلی این فصل",
+        "Agent یا Workflow؟ ابزار تصمیم‌گیری",
+        "نمونه Orchestrator",
+        "تمرین"
+      ],
+      "resources": [
+        {
+          "title": "OpenAI Codex — Subagents",
+          "url": "https://developers.openai.com/codex/subagents"
+        },
+        {
+          "title": "Claude Code — Subagents",
+          "url": "https://code.claude.com/docs/en/sub-agents"
+        },
+        {
+          "title": "Claude Code — Agent teams",
+          "url": "https://code.claude.com/docs/en/agent-teams"
+        },
+        {
+          "title": "OpenAI — Agents",
+          "url": "https://developers.openai.com/api/docs/guides/agents"
+        },
+        {
+          "title": "Anthropic — Building Effective Agents",
+          "url": "https://www.anthropic.com/engineering/building-effective-agents"
+        },
+        {
+          "title": "Anthropic — Multi-agent Research",
+          "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+        },
+        {
+          "title": "OpenAI — Guardrails and human review",
+          "url": "https://developers.openai.com/api/docs/guides/agents/guardrails-approvals"
+        }
+      ]
+    },
+    {
+      "id": "security",
+      "order": 25,
+      "sectionId": "production",
+      "sectionTitle": "بخش ۵: امنیت و Production",
+      "title": "امنیت، Prompt Injection، حریم خصوصی و Governance",
+      "summary": "هر متنی که مدل می‌بیند قابل اعتماد نیست و هر Tool ی نباید آزادانه اجرا شود.",
+      "level": 2,
+      "roles": [
+        "all"
+      ],
+      "roleLabels": [
+        "همهٔ نقش‌ها"
+      ],
+      "why": "متن داخل وب‌سایت، PDF، ایمیل یا Repository ممکن است دستور مخرب داشته باشد. اگر مدل داده Untrusted را با Policy معتبر اشتباه بگیرد، می‌تواند Secret افشا کند یا Tool پرخطر را صدا بزند.",
+      "learningObjectives": [
+        "Trust boundary، Prompt injection، Data exfiltration و مسیرهای سوءاستفاده از Tool را Threat model کنیم.",
+        "Least privilege، جداسازی داده از دستور، Allowlist، Redaction و Approval را بیرون مدل اعمال کنیم.",
+        "Audit، Security test، Secret management و پاسخ به Incident را برای سیستم AI طراحی کنیم."
+      ],
+      "practice": "یک حمله آزمایشی بی‌خطر بساز، مسیر ورود آن تا مدل و Tool را رسم کن و با Test مثبت و منفی نشان بده کنترل‌ها جلوی Side effect را می‌گیرند.",
+      "mission": {
+        "title": "🎮 مأموریت فصل: شکارچی Injection",
+        "instruction": "یک سند مخرب بساز و ثابت کن Policy و Permission بیرون مدل جلوی Tool Abuse را می‌گیرد.",
+        "xp": 70
+      },
+      "contentUrl": "/content/chapters/security.html",
+      "legacyUrl": "/legacy/index.html#security",
+      "completeGuideUrl": null,
+      "subtopics": [
+        "چرا امنیت متفاوت است؟",
+        "ریسک‌های مهم",
+        "حریم خصوصی",
+        "مالکیت فکری",
+        "Risk Tier",
+        "مشق این درس",
+        "راهنماهای عملی تکمیلی این فصل",
+        "دیاگرام کاربردی: مرز اعتماد در Prompt Injection",
+        "بازی Prompt Injection",
+        "Policy برای Tool حساس",
+        "Red Team Checklist"
+      ],
+      "resources": [
+        {
+          "title": "OWASP — Prompt Injection",
+          "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
+        },
+        {
+          "title": "OWASP — LLM Top 10",
+          "url": "https://genai.owasp.org/llm-top-10/"
+        },
+        {
+          "title": "OpenAI — Agent Safety",
+          "url": "https://developers.openai.com/api/docs/guides/agent-builder-safety"
+        },
+        {
+          "title": "OpenAI — Guardrails and Approvals",
+          "url": "https://developers.openai.com/api/docs/guides/agents/guardrails-approvals"
+        },
+        {
+          "title": "NIST — AI RMF Generative AI Profile",
+          "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"
+        }
+      ]
+    },
+    {
+      "id": "adoption",
+      "order": 28,
+      "sectionId": "production",
+      "sectionTitle": "بخش ۵: امنیت و Production",
+      "title": "پذیرش سازمانی، مهارت تیم و پروژه نهایی",
+      "summary": "ارزش AI وقتی ثابت می‌شود که یک مسئله واقعی را با کیفیت و ریسک قابل قبول بهتر کند.",
+      "level": 2,
+      "roles": [
+        "all"
+      ],
+      "roleLabels": [
+        "همهٔ نقش‌ها"
+      ],
+      "why": "پروژه AI فقط با ساخت Demo موفق نمی‌شود. اگر درد واقعی، Owner، آموزش، Governance، Support و معیار توقف نداشته باشد، یا کنار گذاشته می‌شود یا ریسک پنهان می‌سازد.",
+      "learningObjectives": [
+        "یک مسئله کوچک با Owner واقعی انتخاب و Baseline زمان، کیفیت و هزینه را قبل از AI اندازه بگیریم.",
+        "KPI، Risk tier، Dataset، Pilot، گروه مقایسه و معیار Go یا No Go تعریف کنیم.",
+        "آموزش، پشتیبانی، سیاست استفاده، Incident path و Exit plan را همراه پروژه نهایی تحویل دهیم."
+      ],
+      "practice": "یک Capstone کوچک طراحی کن که از Spec و انتخاب روش تا Test، Review، Trace، امنیت و تصمیم انتشار Artifact داشته باشد؛ بعد نتیجه را با Baseline مقایسه کن.",
+      "mission": {
+        "title": "🎮 مأموریت فصل: قهرمان Pilot",
+        "instruction": "یک Pilot با Owner، Baseline، KPI، Dataset، Risk و Go/No-Go طراحی کن.",
+        "xp": 80
+      },
+      "contentUrl": "/content/chapters/adoption.html",
+      "legacyUrl": "/legacy/index.html#adoption",
+      "completeGuideUrl": "https://learn.microsoft.com/en-us/azure/cloud-adoption-framework/scenarios/ai/",
+      "subtopics": [
+        "مشق این درس",
+        "از ابزار شروع نکنید؛ از مسئله شروع کنید",
+        "مراحل بلوغ",
+        "شاخص‌های ارزش",
+        "مرزبندی مسئولیت",
+        "پروژه نهایی",
+        "ارزیابی بلوغ تیم",
+        "خروجی‌های پروژه نهایی",
+        "مسیر ۳۰ روزه"
+      ],
+      "resources": [
+        {
+          "title": "NIST — AI RMF Generative AI Profile",
+          "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"
+        },
+        {
+          "title": "OpenAI — Harness engineering",
+          "url": "https://openai.com/index/harness-engineering/"
+        },
+        {
+          "title": "Anthropic — Demystifying evals for AI agents",
+          "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+        },
+        {
+          "title": "Microsoft Learn — MLOps and GenAIOps",
+          "url": "https://learn.microsoft.com/en-us/azure/well-architected/ai/mlops-genaiops"
+        }
+      ]
+    },
+    {
+      "id": "data-engineering-core",
+      "order": 29,
+      "sectionId": "data-foundation",
+      "sectionTitle": "بخش مهندسی داده: پایه‌ها",
+      "title": "مهندسی داده در ۲۰۲۶؛ از منبع تا محصول قابل اعتماد",
+      "summary": "نقش‌ها، مرز مسئولیت و چرخه عمر داده را قبل از انتخاب ابزار روشن می‌کنیم.",
+      "level": 1,
+      "roles": [
+        "data-engineer",
+        "analytics-engineer",
+        "data-platform-engineer",
+        "ai-data-engineer"
+      ],
+      "roleLabels": [
+        "مهندس داده",
+        "مهندس تحلیل داده",
+        "مهندس پلتفرم داده",
+        "مهندس داده برای AI"
+      ],
+      "why": "در ۲۰۲۶ سرعت تولید Query و Pipeline با AI بالا رفته، اما مالکیت، کیفیت و فهم معنی داده هنوز مسئله اصلی تیم‌هاست. باید بدانی هر خروجی از کجا آمده، چه کسی صاحبش است و برای کدام تصمیم ساخته شده.",
+      "learningObjectives": [
+        "تفاوت مهندس داده، مهندس تحلیل داده، مهندس پلتفرم داده و مهندس داده برای AI را با خروجی واقعی هر نقش توضیح بدهی.",
+        "چرخه منبع، Ingestion، Storage، Transform، Serve و مصرف را روی یک سامانه واقعی ترسیم کنی.",
+        "برای یک Dataset مالک، مصرف‌کننده، SLA و معیار قابل سنجش تعریف کنی."
+      ],
+      "practice": "یکی از گزارش‌های واقعی سازمان را انتخاب کن و مسیر داده‌اش را از سیستم مبدأ تا کاربر نهایی بکش؛ کنار هر مرحله مالک، تأخیر قابل قبول و خطر اصلی را بنویس.",
+      "subtopics": [
+        "نقش‌های اصلی مهندسی داده و مرز مسئولیت آن‌ها",
+        "چرخه عمر داده از Source تا Data Product",
+        "تفکر محصولی برای داده و شناخت مصرف‌کننده",
+        "SQL، Python، Git و Cloud در حد لازم هر نقش",
+        "مالکیت، SLA و معیار موفقیت Dataset"
+      ],
+      "resources": [
+        {
+          "title": "dbt Labs — 2026 State of Analytics Engineering",
+          "url": "https://www.getdbt.com/resources/state-of-analytics-engineering-2026"
+        },
+        {
+          "title": "Microsoft Learn — Data Engineer career path",
+          "url": "https://learn.microsoft.com/en-us/training/career-paths/data-engineer"
+        }
+      ]
+    },
+    {
+      "id": "lakehouse-open-formats",
+      "order": 31,
+      "sectionId": "data-foundation",
+      "sectionTitle": "بخش مهندسی داده: پایه‌ها",
+      "title": "Warehouse، Lakehouse و فرمت‌های باز جدولی",
+      "summary": "محل و قالب نگهداری داده را با توجه به تراکنش، تاریخچه، هزینه و چندموتوره بودن انتخاب می‌کنیم.",
+      "level": 1,
+      "roles": [
+        "data-engineer",
+        "data-platform-engineer",
+        "ai-data-engineer"
+      ],
+      "roleLabels": [
+        "مهندس داده",
+        "مهندس پلتفرم داده",
+        "مهندس داده برای AI"
+      ],
+      "why": "Object Storage ارزان به‌تنهایی پایگاه داده قابل اعتماد نیست. فرمت‌هایی مثل Iceberg و Delta قابلیت Transaction، Schema Evolution، Time Travel و مدیریت فایل را به Lakehouse اضافه می‌کنند.",
+      "learningObjectives": [
+        "تفاوت Database، Warehouse، Data Lake و Lakehouse را بر اساس Workload توضیح بدهی.",
+        "Partition، File Size، Compaction و Metadata را طوری تنظیم کنی که Query و هزینه خراب نشود.",
+        "Iceberg و Delta را بر اساس Engine، Governance و نیاز عملیاتی مقایسه کنی."
+      ],
+      "practice": "برای داده تراکنش، لاگ و سند سازمان یک معماری Storage پیشنهاد بده و دلیل انتخاب Format، Partition و Retention هرکدام را بنویس.",
+      "subtopics": [
+        "Database، Warehouse، Data Lake و Lakehouse",
+        "Parquet و ذخیره‌سازی ستونی",
+        "Apache Iceberg و Delta Lake",
+        "Partitioning، Clustering و مشکل فایل‌های کوچک",
+        "ACID، Time Travel و Schema Evolution",
+        "معماری Bronze، Silver و Gold"
+      ],
+      "resources": [
+        {
+          "title": "Apache Iceberg — Latest documentation",
+          "url": "https://iceberg.apache.org/docs/latest/"
+        },
+        {
+          "title": "Delta Lake — Documentation",
+          "url": "https://docs.delta.io/latest/index.html"
+        },
+        {
+          "title": "Databricks — Medallion architecture",
+          "url": "https://docs.databricks.com/aws/en/lakehouse/medallion"
+        }
+      ]
+    },
+    {
+      "id": "data-ingestion-cdc",
+      "order": 32,
+      "sectionId": "data-pipelines",
+      "sectionTitle": "بخش مهندسی داده: ساخت Pipeline",
+      "title": "Ingestion، CDC و Event Streaming",
+      "summary": "داده را بدون گم‌شدن، تکرار مخرب یا فشار اضافی از مبدأ وارد سیستم می‌کنیم.",
+      "level": 2,
+      "roles": [
+        "data-engineer",
+        "data-platform-engineer",
+        "ai-data-engineer"
+      ],
+      "roleLabels": [
+        "مهندس داده",
+        "مهندس پلتفرم داده",
+        "مهندس داده برای AI"
+      ],
+      "why": "کپی کامل جدول برای هر اجرا ساده است، اما با بزرگ‌شدن داده کند و گران می‌شود. CDC و Event Streaming تغییرات را منتقل می‌کنند، ولی به Ordering، Duplicate، Delete و Schema Change حساس‌اند.",
+      "learningObjectives": [
+        "Snapshot، Incremental Load، CDC و Event را برای سناریوی مناسب انتخاب کنی.",
+        "At-least-once و Exactly-once را بدون ادعای تبلیغاتی و بر اساس مرز سیستم توضیح بدهی.",
+        "Pipeline را در برابر Duplicate، Out-of-order Event و تغییر Schema مقاوم کنی."
+      ],
+      "practice": "برای انتقال تغییرات سفارش از PostgreSQL به Lakehouse، Event Key، Offset، سیاست Duplicate، Delete و بازیابی بعد از قطعی را طراحی کن.",
+      "subtopics": [
+        "Batch Ingestion در برابر Incremental Load",
+        "Change Data Capture و Snapshot",
+        "Kafka، Topic، Partition و Consumer Group",
+        "Ordering، Watermark و Late Data",
+        "Delivery Semantics و Idempotency",
+        "Schema Registry و سازگاری رویداد"
+      ],
+      "resources": [
+        {
+          "title": "Debezium — Stable documentation",
+          "url": "https://debezium.io/documentation/reference/stable/"
+        },
+        {
+          "title": "Apache Kafka — Streams documentation",
+          "url": "https://kafka.apache.org/documentation/streams/"
+        },
+        {
+          "title": "Databricks — Batch vs. streaming",
+          "url": "https://docs.databricks.com/aws/en/data-engineering/batch-vs-streaming"
+        }
+      ]
+    },
+    {
+      "id": "data-batch-streaming",
+      "order": 33,
+      "sectionId": "data-pipelines",
+      "sectionTitle": "بخش مهندسی داده: ساخت Pipeline",
+      "title": "پردازش توزیع‌شده Batch و Streaming با Spark",
+      "summary": "Pipeline را برای حجم بالا، State، تأخیر و بازیابی درست طراحی می‌کنیم.",
+      "level": 2,
+      "roles": [
+        "data-engineer",
+        "data-platform-engineer",
+        "ai-data-engineer"
+      ],
+      "roleLabels": [
+        "مهندس داده",
+        "مهندس پلتفرم داده",
+        "مهندس داده برای AI"
+      ],
+      "why": "زیادکردن Worker جای طراحی درست را نمی‌گیرد. Shuffle، Skew، State و Checkpoint اگر فهمیده نشوند، Job هم کند می‌شود و هم ممکن است نتیجه نادرست یا تکراری بسازد.",
+      "learningObjectives": [
+        "Partition، Shuffle، Join Strategy و Data Skew را در اجرای توزیع‌شده تحلیل کنی.",
+        "Event Time، Processing Time، Window و Watermark را برای Streaming طراحی کنی.",
+        "Checkpoint، State Store و Recovery را قبل از رخداد واقعی آزمایش کنی."
+      ],
+      "practice": "یک جریان رویداد پرداخت طراحی کن که جمع پنج‌دقیقه‌ای بسازد، داده دیررس را مدیریت کند و بعد از Restart بدون دوباره‌شماری ادامه دهد.",
+      "subtopics": [
+        "معماری اجرای Spark و Lazy Evaluation",
+        "Partition، Shuffle و Data Skew",
+        "Join Strategy و بهینه‌سازی Query",
+        "Structured Streaming و Micro-batch",
+        "Event Time، Window و Watermark",
+        "State، Checkpoint و Recovery"
+      ],
+      "resources": [
+        {
+          "title": "Apache Spark — Structured Streaming",
+          "url": "https://spark.apache.org/docs/latest/streaming/index.html"
+        },
+        {
+          "title": "Databricks — Batch vs. streaming",
+          "url": "https://docs.databricks.com/aws/en/data-engineering/batch-vs-streaming"
+        }
+      ]
+    },
+    {
+      "id": "data-orchestration",
+      "order": 34,
+      "sectionId": "data-pipelines",
+      "sectionTitle": "بخش مهندسی داده: ساخت Pipeline",
+      "title": "Orchestration، Backfill و DataOps",
+      "summary": "وابستگی‌ها، زمان‌بندی، Retry و انتشار Pipeline را قابل کنترل و قابل بازگشت می‌کنیم.",
+      "level": 2,
+      "roles": [
+        "data-engineer",
+        "data-platform-engineer",
+        "analytics-engineer"
+      ],
+      "roleLabels": [
+        "مهندس داده",
+        "مهندس پلتفرم داده",
+        "مهندس تحلیل داده"
+      ],
+      "why": "یک DAG سبز الزاماً داده درست تولید نکرده است. Orchestrator باید وابستگی داده‌ای، محدوده Backfill، Retry امن، نسخه کد و Evidence خروجی را مدیریت کند.",
+      "learningObjectives": [
+        "Task dependency و Data/Asset dependency را از هم جدا کنی.",
+        "Job را Idempotent طراحی کنی تا Retry و Backfill نتیجه را خراب نکند.",
+        "CI/CD، محیط‌ها، Secret و Rollback را برای Pipeline داده پیاده کنی."
+      ],
+      "practice": "برای Pipeline فروش روزانه یک DAG بساز و سناریوی تأخیر Source، اجرای دوباره سه روز گذشته و Rollback نسخه Transform را روی کاغذ حل کن.",
+      "subtopics": [
+        "DAG و Asset-oriented Orchestration",
+        "Scheduling، Sensor و Event Trigger",
+        "Retry، Timeout و Idempotency",
+        "Backfill و محدوده اثر",
+        "CI/CD برای SQL، Python و Pipeline",
+        "Secret، Environment و Rollback"
+      ],
+      "resources": [
+        {
+          "title": "Apache Airflow — Data-aware scheduling",
+          "url": "https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/assets.html"
+        },
+        {
+          "title": "Apache Airflow — Best practices",
+          "url": "https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html"
+        }
+      ]
+    },
+    {
+      "id": "data-quality-contracts",
+      "order": 37,
+      "sectionId": "data-trust",
+      "sectionTitle": "بخش مهندسی داده: اعتماد و عملیات",
+      "title": "کیفیت داده، Data Contract و Observability",
+      "summary": "خرابی را قبل از رسیدن به گزارش یا مدل تشخیص می‌دهیم و اثرش را قابل پیگیری می‌کنیم.",
+      "level": 3,
+      "roles": [
+        "data-engineer",
+        "analytics-engineer",
+        "data-platform-engineer",
+        "ai-data-engineer"
+      ],
+      "roleLabels": [
+        "مهندس داده",
+        "مهندس تحلیل داده",
+        "مهندس پلتفرم داده",
+        "مهندس داده برای AI"
+      ],
+      "why": "Pipeline ممکن است از نظر فنی موفق باشد ولی داده خالی، دیررس یا از نظر معنایی غلط تحویل بدهد. Contract جلوی تغییر ناسازگار را می‌گیرد و Observability تغییر رفتار داده را دیده‌پذیر می‌کند.",
+      "learningObjectives": [
+        "Completeness، Validity، Uniqueness، Freshness و Distribution را با معیار قابل اندازه‌گیری تعریف کنی.",
+        "Schema، Semantic و SLA Contract را میان Producer و Consumer نسخه‌دار کنی.",
+        "Alert را به Lineage و محدوده اثر وصل کنی تا Incident سریع‌تر حل شود."
+      ],
+      "practice": "برای جدول سفارش یک Contract شامل Schema، Freshness و پنج Expectation بنویس؛ سپس سناریوی تغییر نوع ستون و افت ۴۰ درصدی رکورد را مدیریت کن.",
+      "subtopics": [
+        "ابعاد کیفیت داده و Threshold مناسب",
+        "Unit Test، Integration Test و Reconciliation",
+        "Data Contract و سازگاری نسخه‌ها",
+        "Freshness، Volume و Distribution Monitoring",
+        "Data Observability و تشخیص Anomaly",
+        "Incident، Impact Analysis و جلوگیری از تکرار"
+      ],
+      "resources": [
+        {
+          "title": "Great Expectations — Official documentation",
+          "url": "https://docs.greatexpectations.io/docs/core/introduction/try_gx/"
+        },
+        {
+          "title": "dbt — Model contracts",
+          "url": "https://docs.getdbt.com/docs/mesh/govern/model-contracts"
+        },
+        {
+          "title": "OpenLineage — Official documentation",
+          "url": "https://openlineage.io/docs/"
+        }
+      ]
+    },
+    {
+      "id": "metadata-lineage-governance",
+      "order": 38,
+      "sectionId": "data-trust",
+      "sectionTitle": "بخش مهندسی داده: اعتماد و عملیات",
+      "title": "Metadata، Lineage، Catalog و Governance",
+      "summary": "معنی، مالکیت، مسیر و مجوز داده را برای انسان، Audit و AI قابل کشف می‌کنیم.",
+      "level": 3,
+      "roles": [
+        "data-engineer",
+        "analytics-engineer",
+        "data-platform-engineer",
+        "ai-data-engineer"
+      ],
+      "roleLabels": [
+        "مهندس داده",
+        "مهندس تحلیل داده",
+        "مهندس پلتفرم داده",
+        "مهندس داده برای AI"
+      ],
+      "why": "بدون Metadata، Dataset فقط چند ستون ناشناس است. Lineage نشان می‌دهد داده از کجا آمده و تغییر یا خطا روی چه مصرف‌کننده‌هایی اثر می‌گذارد؛ Catalog هم پیدا کردن Owner، تعریف و Policy را ممکن می‌کند.",
+      "learningObjectives": [
+        "Technical، Business و Operational Metadata را از هم جدا و به هم وصل کنی.",
+        "Lineage سطح Dataset و Column را از اجرای واقعی جمع‌آوری کنی.",
+        "مالکیت، Classification، Retention و Access Policy را در Catalog قابل اجرا کنی."
+      ],
+      "practice": "برای سه Dataset حساس یک Catalog Entry کامل شامل Owner، تعریف، طبقه‌بندی، Lineage، Retention و مصرف‌کننده‌ها بساز.",
+      "subtopics": [
+        "Technical، Business و Operational Metadata",
+        "Dataset و Column-level Lineage",
+        "Data Catalog و Discovery",
+        "Ownership، Domain و Data Product",
+        "Classification، Retention و Access Policy",
+        "Audit، Impact Analysis و Context برای AI"
+      ],
+      "resources": [
+        {
+          "title": "OpenLineage — Official documentation",
+          "url": "https://openlineage.io/docs/"
+        },
+        {
+          "title": "OpenMetadata — Latest documentation",
+          "url": "https://docs.open-metadata.org/latest/"
+        },
+        {
+          "title": "Databricks — Unity Catalog",
+          "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/"
+        }
+      ]
+    },
+    {
+      "id": "data-platform-reliability",
+      "order": 39,
+      "sectionId": "data-trust",
+      "sectionTitle": "بخش مهندسی داده: اعتماد و عملیات",
+      "title": "پلتفرم داده، Self-service، امنیت و هزینه",
+      "summary": "Golden Path می‌سازیم تا تیم‌ها سریع‌تر Pipeline بسازند، بدون اینکه Governance و پایداری دور زده شود.",
+      "level": 3,
+      "roles": [
+        "data-platform-engineer",
+        "data-engineer",
+        "ai-data-engineer"
+      ],
+      "roleLabels": [
+        "مهندس پلتفرم داده",
+        "مهندس داده",
+        "مهندس داده برای AI"
+      ],
+      "why": "پلتفرم خوب مجموعه‌ای از ابزارها نیست؛ محصول داخلی با تجربه توسعه‌دهنده، Guardrail و SLO روشن است. Self-service باید کار امن را ساده کند، نه اینکه هر تیم زیرساخت جدا و غیرقابل‌پایش بسازد.",
+      "learningObjectives": [
+        "Golden Path و Template ساخت Dataset، Pipeline و دسترسی را طراحی کنی.",
+        "SLO، Capacity، Cost Attribution و Alert را برای Workload داده تعریف کنی.",
+        "Least Privilege، Secret، Encryption، Backup و Disaster Recovery را آزمایش کنی."
+      ],
+      "practice": "یک مسیر Self-service طراحی کن که تیم تحلیل بتواند Dataset جدید بسازد؛ Approval، Policy، Cost Limit، Monitoring و Rollback را هم مشخص کن.",
+      "subtopics": [
+        "Platform as a Product و شناخت توسعه‌دهنده داخلی",
+        "Self-service، Golden Path و Template",
+        "Infrastructure as Code و جداسازی محیط‌ها",
+        "Identity، Least Privilege و Secret Management",
+        "SLO، ظرفیت، هزینه و Chargeback",
+        "Backup، Disaster Recovery و Game Day"
+      ],
+      "resources": [
+        {
+          "title": "Apache Airflow — Best practices",
+          "url": "https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html"
+        },
+        {
+          "title": "Databricks — Unity Catalog",
+          "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/"
+        },
+        {
+          "title": "OpenTelemetry — Semantic conventions",
+          "url": "https://opentelemetry.io/docs/specs/semconv/"
+        }
+      ]
+    }
+  ],
+  "videos": [
+    {
+      "chapterId": "foundations",
+      "videoId": "phOhGqpXss4",
+      "title": "Predictive vs Generative AI: How They Work and When to Use Each",
+      "publisher": "IBM Technology",
+      "publishedLabel": "۲۰۲۶/۰۵/۱۱",
+      "popularityLabel": "بیش از ۵۵ هزار بازدید",
+      "sourceUrl": "https://www.youtube.com/watch?v=phOhGqpXss4"
+    },
+    {
+      "chapterId": "prompt",
+      "videoId": "ibcMs4KUvTw",
+      "title": "Is Prompt Engineering Still Worth It in 2026?",
+      "publisher": "James Blue",
+      "publishedLabel": "۲۰۲۶/۰۸/۰۷",
+      "popularityLabel": "بیش از ۹ هزار بازدید",
+      "sourceUrl": "https://www.youtube.com/watch?v=ibcMs4KUvTw"
+    },
+    {
+      "chapterId": "context-memory",
+      "videoId": "BBPQYtR7oUk",
+      "title": "Context Engineering Explained",
+      "publisher": "Google Cloud Tech",
+      "publishedLabel": "۲۰۲۶/۰۷/۱۵",
+      "popularityLabel": "بیش از ۸۵ هزار بازدید",
+      "sourceUrl": "https://www.youtube.com/watch?v=BBPQYtR7oUk"
+    },
+    {
+      "chapterId": "long-context",
+      "videoId": "B_RrXwDupIg",
+      "title": "CAG vs Long Context: How AI Models Use and Remember Information",
+      "publisher": "IBM Technology",
+      "publishedLabel": "۲۰۲۶/۰۵/۲۱",
+      "popularityLabel": "بیش از ۳۰ هزار بازدید",
+      "sourceUrl": "https://www.youtube.com/watch?v=B_RrXwDupIg"
+    },
+    {
+      "chapterId": "tool-basics",
+      "videoId": "Bn7YX_RfAt0",
+      "title": "Best AI Agent Tools in 2026",
+      "publisher": "Mikey No Code",
+      "publishedLabel": "۲۰۲۶/۰۶/۰۸",
+      "popularityLabel": "بیش از ۱۹ هزار بازدید",
+      "sourceUrl": "https://www.youtube.com/watch?v=Bn7YX_RfAt0"
+    },
+    {
+      "chapterId": "evaluation",
+      "videoId": "-nKaaP-Ec98",
+      "title": "LLM Evaluation in 2026: What Changed",
+      "publisher": "Standarity",
+      "publishedLabel": "۲۰۲۶/۰۵/۰۷",
+      "popularityLabel": "منبع تخصصی جدید",
+      "sourceUrl": "https://www.youtube.com/watch?v=-nKaaP-Ec98"
+    },
+    {
+      "chapterId": "method-selection",
+      "videoId": "BrLU6BS_JFo",
+      "title": "AI Agents vs Workflows",
+      "publisher": "KodeKloud",
+      "publishedLabel": "۲۰۲۶/۰۵/۲۰",
+      "popularityLabel": "بیش از ۳ هزار بازدید",
+      "sourceUrl": "https://www.youtube.com/watch?v=BrLU6BS_JFo"
+    },
+    {
+      "chapterId": "sdlc",
+      "videoId": "4wMRXmLpdA8",
+      "title": "AI in the SDLC: Rethinking AI Coding Tools and Agents",
+      "publisher": "IBM Technology and IBM Developer",
+      "publishedLabel": "۲۰۲۶/۰۶/۲۲",
+      "popularityLabel": "بیش از ۱۰۱ هزار بازدید",
+      "sourceUrl": "https://www.youtube.com/watch?v=4wMRXmLpdA8"
+    },
+    {
+      "chapterId": "existing-code-ai",
+      "videoId": "ElYxdpYi4U0",
+      "title": "The Agentic Engineer Workflow You Need in 2026",
+      "publisher": "Zen van Riel",
+      "publishedLabel": "۲۰۲۶/۰۵/۲۰",
+      "popularityLabel": "بیش از ۵۴ هزار بازدید",
+      "sourceUrl": "https://www.youtube.com/watch?v=ElYxdpYi4U0"
+    },
+    {
+      "chapterId": "planning",
+      "videoId": "xJQuF02NAK8",
+      "title": "The Explore → Plan → Code → Commit Workflow",
+      "publisher": "Claude",
+      "publishedLabel": "۲۰۲۶/۰۵/۱۷",
+      "popularityLabel": "بیش از ۴۰۹ هزار بازدید",
+      "sourceUrl": "https://www.youtube.com/watch?v=xJQuF02NAK8"
+    },
+    {
+      "chapterId": "agents",
+      "videoId": "ZVPlLaehjLk",
+      "title": "Agentic AI Frameworks Explained",
+      "publisher": "IBM Technology",
+      "publishedLabel": "۲۰۲۶/۰۷/۰۹",
+      "popularityLabel": "بیش از ۴۳ هزار بازدید",
+      "sourceUrl": "https://www.youtube.com/watch?v=ZVPlLaehjLk"
+    },
+    {
+      "chapterId": "security",
+      "videoId": "VQdim50QJw8",
+      "title": "What Is Prompt Injection? The Real Risk in AI Agents",
+      "publisher": "KodeKloud",
+      "publishedLabel": "۲۰۲۶/۰۷/۱۰",
+      "popularityLabel": "بیش از ۳ هزار بازدید",
+      "sourceUrl": "https://www.youtube.com/watch?v=VQdim50QJw8"
+    },
+    {
+      "chapterId": "adoption",
+      "videoId": "S78k-wdl6LI",
+      "title": "Enterprise AI Adoption Challenges: ROI and Governance",
+      "publisher": "Sparq",
+      "publishedLabel": "۲۰۲۶/۰۶/۱۲",
+      "popularityLabel": "منبع تخصصی جدید",
+      "sourceUrl": "https://www.youtube.com/watch?v=S78k-wdl6LI"
+    },
+    {
+      "chapterId": "data-engineering-core",
+      "videoId": "oBOxVq8Ie9M",
+      "title": "I Ranked EVERY Data Engineering Skill for 2026",
+      "publisher": "Jash Radia",
+      "publishedLabel": "۲۰۲۶/۰۵",
+      "popularityLabel": "بیش از ۱۶ هزار بازدید",
+      "sourceUrl": "https://www.youtube.com/watch?v=oBOxVq8Ie9M"
+    },
+    {
+      "chapterId": "lakehouse-open-formats",
+      "videoId": "W4RPvPBpIO4",
+      "title": "Apache Iceberg Summit 2026 Takeaways",
+      "publisher": "Cloudera",
+      "publishedLabel": "۲۰۲۶/۰۵",
+      "popularityLabel": "ویدیوی رسمی ۲۰۲۶",
+      "sourceUrl": "https://www.youtube.com/watch?v=W4RPvPBpIO4"
+    },
+    {
+      "chapterId": "data-ingestion-cdc",
+      "videoId": "Ut0i-SSEXY4",
+      "title": "What is CDC in System Design?",
+      "publisher": "Piyush Garg",
+      "publishedLabel": "۲۰۲۶/۰۸",
+      "popularityLabel": "بیش از ۷ هزار بازدید",
+      "sourceUrl": "https://www.youtube.com/watch?v=Ut0i-SSEXY4"
+    },
+    {
+      "chapterId": "data-batch-streaming",
+      "videoId": "TnBtniYHrBo",
+      "title": "Air Traffic Control with Apache Spark Structured Streaming Real-Time Mode",
+      "publisher": "Databricks",
+      "publishedLabel": "۲۰۲۶/۰۵",
+      "popularityLabel": "ویدیوی رسمی ۲۰۲۶",
+      "sourceUrl": "https://www.youtube.com/watch?v=TnBtniYHrBo"
+    },
+    {
+      "chapterId": "data-orchestration",
+      "videoId": "Hato9c6-F_Y",
+      "title": "A 2026 Data Pipeline with Snowflake, dbt, Airflow and AI",
+      "publisher": "Data Depth",
+      "publishedLabel": "۲۰۲۶/۰۶",
+      "popularityLabel": "نمونه عملی جدید",
+      "sourceUrl": "https://www.youtube.com/watch?v=Hato9c6-F_Y"
+    },
+    {
+      "chapterId": "data-quality-contracts",
+      "videoId": "JlvwiLRu3QE",
+      "title": "Data Observability Explained: 5 Pillars, Tools and Why It Matters for AI",
+      "publisher": "Ataccama",
+      "publishedLabel": "۲۰۲۶/۰۶",
+      "popularityLabel": "ویدیوی تخصصی ۲۰۲۶",
+      "sourceUrl": "https://www.youtube.com/watch?v=JlvwiLRu3QE"
+    },
+    {
+      "chapterId": "metadata-lineage-governance",
+      "videoId": "Cp1cYP7i8S8",
+      "title": "Data Lineage and Metadata Management Demo",
+      "publisher": "Cloudera",
+      "publishedLabel": "۲۰۲۶/۰۶",
+      "popularityLabel": "دموی رسمی ۲۰۲۶",
+      "sourceUrl": "https://www.youtube.com/watch?v=Cp1cYP7i8S8"
+    },
+    {
+      "chapterId": "data-platform-reliability",
+      "videoId": "qXY0KEhIu0E",
+      "title": "Platform Engineering at AI Speed: Self-service, Governance and Rollbacks",
+      "publisher": "Platform Engineering",
+      "publishedLabel": "۲۰۲۶/۰۷",
+      "popularityLabel": "PlatformCon 2026",
+      "sourceUrl": "https://www.youtube.com/watch?v=qXY0KEhIu0E"
+    }
+  ],
+  "sources": [
+    {
+      "title": "NIST — AI RMF Generative AI Profile",
+      "url": "https://www.nist.gov/publications/artificial-intelligence-risk-management-framework-generative-artificial-intelligence"
+    },
+    {
+      "title": "Anthropic — Building Effective Agents",
+      "url": "https://www.anthropic.com/engineering/building-effective-agents"
+    },
+    {
+      "title": "OpenAI — Harness engineering",
+      "url": "https://openai.com/index/harness-engineering/"
+    },
+    {
+      "title": "Anthropic — Context Engineering",
+      "url": "https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents"
+    },
+    {
+      "title": "OpenAI — Structured model outputs",
+      "url": "https://developers.openai.com/api/docs/guides/structured-outputs"
+    },
+    {
+      "title": "Anthropic — Writing effective tools for agents",
+      "url": "https://www.anthropic.com/engineering/writing-tools-for-agents"
+    },
+    {
+      "title": "Anthropic — Long-running Agent Harnesses",
+      "url": "https://www.anthropic.com/engineering/effective-harnesses-for-long-running-agents"
+    },
+    {
+      "title": "OpenAI — Long-horizon tasks with Codex",
+      "url": "https://developers.openai.com/blog/run-long-horizon-tasks-with-codex"
+    },
+    {
+      "title": "OpenAI API — Conversation state and context window",
+      "url": "https://developers.openai.com/api/docs/guides/conversation-state"
+    },
+    {
+      "title": "OpenAI API — Compaction",
+      "url": "https://developers.openai.com/api/docs/guides/compaction"
+    },
+    {
+      "title": "OpenAI Cookbook — Reliable agents with memory and compaction",
+      "url": "https://developers.openai.com/cookbook/examples/agents_sdk/building_reliable_agents_memory_compaction"
+    },
+    {
+      "title": "OpenAI Cookbook — Short-term memory with sessions",
+      "url": "https://developers.openai.com/cookbook/examples/agents_sdk/session_memory"
+    },
+    {
+      "title": "Liu et al. — Lost in the Middle",
+      "url": "https://arxiv.org/abs/2307.03172"
+    },
+    {
+      "title": "Anthropic — Context windows and compaction",
+      "url": "https://docs.anthropic.com/en/docs/build-with-claude/context-windows"
+    },
+    {
+      "title": "OpenAI — Tools Overview",
+      "url": "https://developers.openai.com/api/docs/guides/tools"
+    },
+    {
+      "title": "OpenAI — Code Interpreter",
+      "url": "https://developers.openai.com/api/docs/guides/tools-code-interpreter"
+    },
+    {
+      "title": "OpenAI — Local Shell",
+      "url": "https://developers.openai.com/api/docs/guides/tools-local-shell"
+    },
+    {
+      "title": "OpenAI — Agent Evals",
+      "url": "https://developers.openai.com/api/docs/guides/agent-evals"
+    },
+    {
+      "title": "OpenAI — Trace Grading",
+      "url": "https://developers.openai.com/api/docs/guides/trace-grading"
+    },
+    {
+      "title": "Anthropic — Demystifying evals for AI agents",
+      "url": "https://www.anthropic.com/engineering/demystifying-evals-for-ai-agents"
+    },
+    {
+      "title": "GitHub Docs — Copilot code review",
+      "url": "https://docs.github.com/en/copilot/concepts/agents/code-review"
+    },
+    {
+      "title": "OpenAI Codex — Understand large codebases",
+      "url": "https://developers.openai.com/codex/use-cases/codebase-onboarding"
+    },
+    {
+      "title": "OpenAI Codex — Plan first for difficult tasks",
+      "url": "https://developers.openai.com/codex/learn/best-practices"
+    },
+    {
+      "title": "OpenAI Codex — AGENTS.md",
+      "url": "https://developers.openai.com/codex/agent-configuration/agents-md"
+    },
+    {
+      "title": "Claude Code — Common workflows",
+      "url": "https://code.claude.com/docs/en/common-workflows"
+    },
+    {
+      "title": "GitHub Copilot coding agent — Best practices",
+      "url": "https://docs.github.com/copilot/how-tos/agents/copilot-coding-agent/best-practices-for-using-copilot-to-work-on-tasks"
+    },
+    {
+      "title": "OpenAI — Execution Plans",
+      "url": "https://developers.openai.com/cookbook/articles/codex_exec_plans"
+    },
+    {
+      "title": "OpenAI Codex — Subagents",
+      "url": "https://developers.openai.com/codex/subagents"
+    },
+    {
+      "title": "Claude Code — Subagents",
+      "url": "https://code.claude.com/docs/en/sub-agents"
+    },
+    {
+      "title": "Claude Code — Agent teams",
+      "url": "https://code.claude.com/docs/en/agent-teams"
+    },
+    {
+      "title": "OpenAI — Agents",
+      "url": "https://developers.openai.com/api/docs/guides/agents"
+    },
+    {
+      "title": "Anthropic — Multi-agent Research",
+      "url": "https://www.anthropic.com/engineering/multi-agent-research-system"
+    },
+    {
+      "title": "OpenAI — Guardrails and Approvals",
+      "url": "https://developers.openai.com/api/docs/guides/agents/guardrails-approvals"
+    },
+    {
+      "title": "OWASP — Prompt Injection",
+      "url": "https://genai.owasp.org/llmrisk/llm01-prompt-injection/"
+    },
+    {
+      "title": "OWASP — LLM Top 10",
+      "url": "https://genai.owasp.org/llm-top-10/"
+    },
+    {
+      "title": "OpenAI — Agent Safety",
+      "url": "https://developers.openai.com/api/docs/guides/agent-builder-safety"
+    },
+    {
+      "title": "Microsoft Learn — MLOps and GenAIOps",
+      "url": "https://learn.microsoft.com/en-us/azure/well-architected/ai/mlops-genaiops"
+    },
+    {
+      "title": "dbt Labs — 2026 State of Analytics Engineering",
+      "url": "https://www.getdbt.com/resources/state-of-analytics-engineering-2026"
+    },
+    {
+      "title": "Microsoft Learn — Data Engineer career path",
+      "url": "https://learn.microsoft.com/en-us/training/career-paths/data-engineer"
+    },
+    {
+      "title": "Apache Iceberg — Latest documentation",
+      "url": "https://iceberg.apache.org/docs/latest/"
+    },
+    {
+      "title": "Delta Lake — Documentation",
+      "url": "https://docs.delta.io/latest/index.html"
+    },
+    {
+      "title": "Databricks — Medallion architecture",
+      "url": "https://docs.databricks.com/aws/en/lakehouse/medallion"
+    },
+    {
+      "title": "Debezium — Stable documentation",
+      "url": "https://debezium.io/documentation/reference/stable/"
+    },
+    {
+      "title": "Apache Kafka — Streams documentation",
+      "url": "https://kafka.apache.org/documentation/streams/"
+    },
+    {
+      "title": "Databricks — Batch vs. streaming",
+      "url": "https://docs.databricks.com/aws/en/data-engineering/batch-vs-streaming"
+    },
+    {
+      "title": "Apache Spark — Structured Streaming",
+      "url": "https://spark.apache.org/docs/latest/streaming/index.html"
+    },
+    {
+      "title": "Apache Airflow — Data-aware scheduling",
+      "url": "https://airflow.apache.org/docs/apache-airflow/stable/authoring-and-scheduling/assets.html"
+    },
+    {
+      "title": "Apache Airflow — Best practices",
+      "url": "https://airflow.apache.org/docs/apache-airflow/stable/best-practices.html"
+    },
+    {
+      "title": "Great Expectations — Official documentation",
+      "url": "https://docs.greatexpectations.io/docs/core/introduction/try_gx/"
+    },
+    {
+      "title": "dbt — Model contracts",
+      "url": "https://docs.getdbt.com/docs/mesh/govern/model-contracts"
+    },
+    {
+      "title": "OpenLineage — Official documentation",
+      "url": "https://openlineage.io/docs/"
+    },
+    {
+      "title": "OpenMetadata — Latest documentation",
+      "url": "https://docs.open-metadata.org/latest/"
+    },
+    {
+      "title": "Databricks — Unity Catalog",
+      "url": "https://docs.databricks.com/aws/en/data-governance/unity-catalog/"
+    },
+    {
+      "title": "OpenTelemetry — Semantic conventions",
+      "url": "https://opentelemetry.io/docs/specs/semconv/"
+    }
+  ]
+}
