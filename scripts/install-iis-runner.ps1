@@ -4,6 +4,7 @@ param()
 
 $ErrorActionPreference = "Stop"
 $ProgressPreference = "SilentlyContinue"
+[Net.ServicePointManager]::SecurityProtocol = [Net.SecurityProtocolType]::Tls12
 
 $repositoryUrl = "https://github.com/omidalig/airoadmap"
 $runnerName = "AiRoadmap-IIS"
@@ -116,4 +117,3 @@ Write-Host "Service:     $serviceName"
 Write-Host "Status:      $($service.Status)"
 Write-Host "Deploy path: $deploymentDirectory"
 Write-Host "`nThe queued GitHub Actions deployment can now continue automatically."
-
